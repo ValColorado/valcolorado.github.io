@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "valentina colorado"
+  description: "Valentina Colorado's personal blog"
+  navbar:
+    background: "#A3B2A4"
+    right:
+      - file: index.qmd
+        text: "about"
+      - file: projects.qmd
+        text: "projects"
+      - file: leetcode.qmd
+        text: "leetcode"
+      - icon: github
+        href: https://github.com/ValColorado
+      - icon: linkedin
+        href: https://www.linkedin.com/in/valentina-colorado/
+format:
+  html:
+   theme: 
+      light: [flatly, light.scss]
+      dark: [darkly, dark.scss]
+
+

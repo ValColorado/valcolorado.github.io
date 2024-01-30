@@ -1,0 +1,22 @@
+---
+title: "Spotify Re-Wrapped"
+author: "Valentina Colorado, Isabel Zimmerman"
+date: "2023-05-01"
+categories: [class, code, R, shiny,Python]
+image: https://media4.giphy.com/media/cOfwtFobGCLJBU3DNn/giphy.gif?cid=ecf05e47q7r9lqvt4pxi5sbxdlq1xmm4bo8c7g1suym6piib&ep=v1_stickers_search&rid=giphy.gif&ct=s
+description: "Using Spotify listening data to create data analysis on my listening history. Also including an interactive tab where users can upload their own spotify data to get personalized song reccomendations"
+---
+
+
+## Shiny App
+::: {}
+```{=html}
+ <iframe id="example1" src="https://valcolorado.github.io/spotify-rewrapped/" style="border: none; width: 100%; height: 720px" frameborder="0"></iframe>
+```
+:::
+
+
+To view the other tabs in the site click on the side bar and select the tab.
+![](app.gif)
+
+If the iframe is too small you can go to the web page by clicking [here](https://valcolorado.github.io/spotify-rewrapped/)

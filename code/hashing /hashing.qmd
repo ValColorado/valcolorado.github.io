@@ -1,0 +1,160 @@
+---
+title: "Hashing"
+author: "Valentina Colorado"
+date: "2024-01-03"
+categories: [Java, Python,Data Structures, Algorithms, Hashing]
+image: https://miro.medium.com/v2/resize:fit:1400/1*8hAoOurJFBfA-w1wKUAqIA.gif
+description: "Going over hashing topics and leetcode problems"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: styles.css
+---
+
+*A hash map is an unordered data structure that stores key-value pairs*
+
++----------------------------------------------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+| Name                                                     | Benefits                                                                                  | Disadvantages                                                                                     |
++==========================================================+===========================================================================================+===================================================================================================+
+| Chaining: Technique used for avoiding ***collisions***   | -   Insertion O(1)                                                                        | -   Keys are not evenly distributed                                                               |
+|                                                          |                                                                                           |                                                                                                   |
+|                                                          | -   Can grow infinitely as long as there is enough space                                  | -   Separate chaining can lead to empty spaces in table                                           |
+|                                                          |                                                                                           |                                                                                                   |
+|                                                          | -   Never needs to be resized                                                             | -   List in the positions can be very long                                                        |
++----------------------------------------------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+| Sets: Uses same mechanism for hashing keys into integers | -   Sets do not map their keys to anything                                                | -   Don't track frequency                                                                         |
+|                                                          |                                                                                           |                                                                                                   |
+|                                                          | -   Add remove elements in O(1)                                                           | -   Elements in a set can only be accessed with pointers, there is no indexing in set like arrays |
+|                                                          |                                                                                           |                                                                                                   |
+|                                                          | -   Set are dynamic, so there is no error of overflowing of the set.                      | -   O(logN) time complexity for **basic operations** like insertion and deletion.                 |
+|                                                          |                                                                                           |                                                                                                   |
+|                                                          | -   Sets can be used to improve performance in many algorithms by providing fast lookups. |                                                                                                   |
++----------------------------------------------------------+-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+
+# Basic Examples
+
+::: panel-tabset
+## Java
+
+``` java
+
+public class Example {
+    public static void main(String[] args) {        
+        Map<Integer, Integer> myHashMap = new HashMap<>();
+        // myHashMap has integers for both keys and values
+        
+        myHashMap.put(4, 83);
+        System.out.println(myHashMap.get(4)); // Prints 83
+        System.out.println(myHashMap.containsKey(4)); // Prints true
+        System.out.println(myHashMap.containsKey(854)); // Prints false
+        
+        myHashMap.put(8, 327);
+        myHashMap.put(45, 82523);
+        
+        for (int key: myHashMap.keySet()) {
+            System.out.println(String.format("%d: %d", key, myHashMap.get(key)));
+        }
+    }
+}
+```
+
+## Python
+
+``` python
+    hash_map = {}
+    hash_map[4] = 83 
+    print(hash_map[4])# prints 83 
+
+    print(854 in hash_map) #print False
+    print(4 in hash_map) #print True
+
+    hash_map[8]=327 # new key, value
+
+    for key,val in hash_map.items(): #iterate and print out all key, values
+        print(f"{key}: {val}")
+```
+:::
+
+## Checking for Existence
+
+*Example 1: 1. Two Sum Given an array of integers nums and an integer target, return indices of two numbers such that they add up to target.* You cannot use the same index twice.
+
+::: panel-tabset
+## Java
+
+``` java
+
+    private static int[] targetSumHash(int[] nums, int target) {
+
+        Map<Integer, Integer> hasMap = new HashMap<>();
+
+        for(int i=0; i<nums.length;i++){
+            int num = nums[i];
+            int complement = target - num;
+            if(hasMap.containsKey(complement)){ // This operation is O(1)!
+                System.out.println(hasMap.get(complement));
+                return new int[] {i, hasMap.get(complement)};
+            }
+            hasMap.put(num,i);
+        }
+        return new int[] {-1,1};
+    
+    }
+```
+
+## Python
+
+``` python
+def twoSum(nums: list[int], target: int) -> list[int]:
+    hash = {}
+    for i in range(len(nums)):
+        num = nums[i]
+        complement = target - num
+        if complement in hash: # This operation is O(1)!
+            return [i,hash[complement]]
+        hash[num]=i
+    return [-1,-1]
+```
+
+*Time: O(n) Space O(n)*
+:::
+
+*Example 2: 2351. First Letter to Appear Twice* Given a string s, return the first character to appear twice. It is guaranteed that the input will have a duplicate character.
+
+::: panel-tabset
+## Java
+
+``` java
+
+private static char repeatedCharacter(String s) {
+  Set<Character> seen = new HashSet<>();
+  for(int i=0; i<s.length();i++){
+      char c = s.charAt(i);
+      if(seen.contains(c)){
+          return c;
+            }
+      seen.add(c);
+        }
+        return ' ';
+        
+    }
+```
+
+## Python
+
+``` python
+def repeatedChar(self, s: str)->str:
+    seen =set()
+    for i in s:
+        c = s[i]
+        if c in s:
+            return c
+        seen.add(c)
+    return " "
+```
+
+*Time: O(n) Space O(1)-\>26 letters in the alphabet or O(m) m* number of allowable characters in the input
+:::
+
+Example 3: Given an integer array nums, find all the unique numbers x in nums that satisfy the following: x + 1 is not in nums, and x - 1 is not in nums.

@@ -1,0 +1,171 @@
+---
+title: "Data Mining Text Mining Adventure"
+author: "Valentina Colorado, Alexandra Desaulniers"
+date: "2024-01-10"
+categories: [class, code, analysis, DMTM, R]
+image: https://upload.wikimedia.org/wikipedia/en/8/8b/Hellbilly_Deluxe.jpg
+description: "Using data mining text mining sentiment analysis to explore the emotional impact of Rob Zombie's iconic album, Hellbilly Deluxe (1998)." 
+---
+
+## About 
+Using data mining text mining sentiment analysis to explore the emotional impact of Rob Zombie's iconic album, Hellbilly Deluxe (1998). This album is known for its distinctive blend of horror, metal, and industrial sounds. We try to find insights into the album's influence on listener emotions. The research underscores the power of sentiment analysis in deciphering the intricate interplay between musical elements and emotional responses, providing a comprehensive understanding of the emotional dynamics evoked by this unique musical work. It is known that music affects a human’s state of emotion, but it is important to consider the level of complexity that the emotional state could represent. 
+
+## Exploratory Data Analysis
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidytext)
+library('textdata')
+library("readxl")
+library(reshape2)
+library(factoextra)
+library(wordcloud)
+#devtools::install_github("lchiffon/wordcloud2", force=TRUE)
+library("wordcloud2")
+library(scales)
+library(topicmodels)
+library(tm)
+```
+
+```{r, warning=FALSE}
+Lyrics <- read_excel("RobZombieSheet.xlsx")
+head(Lyrics)
+```
+
+```{r, warning=FALSE}
+CleanLyrics <- Lyrics %>%
+  unnest_tokens(word, lyrics, token = "words") %>%   
+ filter(!word %in% stop_words$word, str_detect(word, "[a-z]"))
+head(CleanLyrics, 10)
+```
+
+```{r, warning=FALSE}
+Sent <- CleanLyrics %>%
+  inner_join(get_sentiments("bing")) %>%
+ count(song_name, sentiment) %>%
+ spread(sentiment, n, fill = 0)%>%
+ mutate(sentiment = positive - negative)
+Sent
+```
+
+```{r, warning=FALSE}
+Freq <- CleanLyrics %>% group_by(word) %>% 
+ summarise(uses = n()) %>% 
+ arrange(desc(uses))
+head(Freq)
+```
+
+```{r, warning=FALSE}
+Freq %>%
+  slice(1:20) %>%
+  ggplot() + 
+ geom_bar(aes(x = reorder(word, uses), y = uses), stat = "identity", color = 'purple', fill = 'green') +
+ coord_flip() + 
+ labs(y = "Frequency of use",
+ x = "Words") +
+ theme_minimal() + 
+theme_dark() + 
+  ggtitle('Frequency of Words in Rob Zombie Songs')
+
+```
+
+```{r, warning=FALSE}
+LyricCloud<- CleanLyrics%>%
+  anti_join(stop_words) %>%
+  count(word) %>%
+  with(wordcloud(word, n, color = c("maroon"), max.words=100))
+```
+
+```{r, warning=FALSE}
+wordcloud2(data = Freq,color = "random-dark", backgroundColor = "grey",  minRotation = pi/3, maxRotation = -pi/6, minSize = 10,
+  rotateRatio = 1)
+```
+
+
+```{r, warning=FALSE}
+LyricsCloud2<- CleanLyrics%>%
+  inner_join(get_sentiments("bing")) %>%
+  count(word, sentiment, sort = TRUE) %>%
+  acast(word~sentiment, value.var ="n", fill=0) %>%
+  comparison.cloud(colors = c("black","green"), max.words = 100)
+```
+
+```{r, warning=FALSE}
+ggplot(data = Sent) + 
+  geom_point(aes(x = song_name,
+                 y=sentiment, color = Sent$sentiment)) +
+  theme_minimal() +
+  coord_flip() +
+  theme_dark() +
+  ggtitle('Sentiment Score Comparison') + 
+  scale_colour_gradient(low = "green", high = "orange") + 
+  guides(color = guide_legend(title = "Sentiment Range")) +
+  theme(axis.text = element_text(size = 6), 
+        axis.title = element_text(size = 14),
+        plot.title = element_text(size = 18, face = "bold")) + 
+  xlab('Song Name') + 
+  ylab('Sentiment')
+```
+
+```{r, warning=FALSE}
+CleanWords <- CleanLyrics %>%
+inner_join(get_sentiments("nrc")) %>%
+  group_by(sentiment, word) %>%
+  count(mycount = n()) %>%
+  distinct() %>%
+  filter(sentiment %in%
+  c("trust", "joy","surprise","anticipation", "fear", "anger", "disgust", "sadness"))
+
+head(CleanLyrics)
+```
+
+```{r, warning=FALSE}
+CleanWords %>%
+  ggplot() + 
+ geom_bar(aes(x = sentiment), color = 'green', fill = 'purple') +
+ coord_flip() + 
+ labs(y = "Frequency",
+ x = "Sentiment") +
+ theme_minimal() + 
+theme_dark() + 
+  ggtitle('Frequency of Sentiment')
+
+```
+
+
+```{r, warning=FALSE}
+clean <- merge(CleanLyrics, CleanWords, by = "word")
+```
+
+```{r, warning=FALSE}
+SentBySong<- data.frame(table(clean$song_name, clean$sentiment))
+```
+
+```{r, warning=FALSE}
+ggplot(SentBySong, aes(x = Var2, y = Freq, color = Var1), cex = 0.2) + 
+        geom_point() + 
+        facet_wrap(~ Var1) +
+        theme_dark() +
+        theme(text = element_text(size=5),
+        axis.text.x = element_text(angle=90, hjust=1)) +
+        guides(color = guide_legend(title = "Song Names")) +
+        xlab("Sentiment") +
+        ylab("Frequency") +
+        ggtitle("Frequency of Sentiment by Song") +
+        theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```{r, warning=FALSE}
+ggplot(Lyrics, aes(x= song_length_sec, y=song_name, fill = song_name)) +
+  geom_bar(stat="identity") +
+  theme_dark() +
+  theme(text = element_text(size=8),
+  axis.text.x = element_text(angle=60, hjust=1)) +
+  theme(legend.position="none") +
+  coord_flip() +
+  xlab("Song Length") +
+  ylab("Song Name") +
+  ggtitle("Duration of General Sentiment by Song") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```

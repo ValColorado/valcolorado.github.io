@@ -1,0 +1,9 @@
+---
+title: "Leetcode"
+listing:
+  contents: code
+  sort: "date desc"
+  type: default
+  feed:
+    categories: [python, r, java]
+---

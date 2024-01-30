@@ -1,0 +1,11 @@
+{
+  "hash": "45e874b1d10032b486a6c1b5d264a836",
+  "result": {
+    "markdown": "---\ntitle: \"Data Structure Review\"\nauthor: \"Valentina Colorado\"\ndate: \"2023-05-01\"\ncategories: [Java, Data Structures, Algorithms]\nimage: https://miro.medium.com/v2/resize:fit:800/format:webp/1*xGgaEhVE5dMD-R8krQG4PQ.gif\ndescription: \"Going over basic data structures and algorithms material\"\nengine: jupyter\n---\n\n#Stacks\n\n\n```{java}\npublic class LinkedLists{\n\n    public static void main(String[] args) {\n        LinkedList<String> linkedList = new LinkedList<String>();\n}\n```\n\n",
+    "supporting": [
+      "data-structures-review_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

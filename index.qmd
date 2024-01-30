@@ -1,0 +1,29 @@
+---
+title: "valentina colorado"
+image: headshot.png
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/valentina-colorado/
+    - icon: github
+      text: Github
+      href: https://github.com/ValColorado
+
+---
+
+## Education
+
+**Florida Polytechnic University** | Lakeland, FL
+
+MS in Computer Science | Jan 2023 - Dec 2023 
+
+**Florida Polytechnic University** | Lakeland, FL
+
+BS in Computer Science | Aug 2019 - May 2022
+
+
+## Publications
+
+**Insight into the Capabilities of Machine Learning Explainability Software Through the Evaluation of Two Prominent Open-Source Tools** |  2023 Published by AS-Proceedings

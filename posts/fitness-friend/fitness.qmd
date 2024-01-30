@@ -1,0 +1,22 @@
+---
+title: "Shiny Fitness Application "
+author: "Valentina Colorado,"
+date: "2024-01-12"
+categories: [class, code, R, shiny,]
+image: https://media2.giphy.com/media/soUwubznXgM6jHcoxe/giphy.gif
+description: "Shiny application serving as a generalized fitness guide. This tool assists users in calculating metrics like basic metabolic rate (BMR), total daily energy expenditure (TDEE),  macronutrients, and even generating personalized meal plans via the ChatGPT API."
+---
+
+
+## Shiny 
+
+The Shiny package provides a flexible, easy to use framework for creating interactive web applications with R. Quarto in turn includes support for embedding Shiny components and applets into documents created with the Knitr engine.
+
+::: {}
+```{=html}
+ <iframe id="example1" src="https://valentina-colorado-myfitnessfriend.shinyapps.io/myFitnessFriend/" style="border: none; width: 110%; height: 720px" frameborder="0"></iframe>
+```
+:::
+
+
+If the iframe is too small you can go to the web page by clicking [here](https://valentina-colorado-myfitnessfriend.shinyapps.io/myFitnessFriend/)
