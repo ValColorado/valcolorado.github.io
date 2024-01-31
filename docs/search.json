@@ -14,13 +14,6 @@
     "text": "The Shiny package provides a flexible, easy to use framework for creating interactive web applications with R. Quarto in turn includes support for embedding Shiny components and applets into documents created with the Knitr engine.\n\n \n\nIf the iframe is too small you can go to the web page by clicking here"
   },
   {
-    "objectID": "posts/data-structures/data-structures-review.html",
-    "href": "posts/data-structures/data-structures-review.html",
-    "title": "Data Structure Array Review",
-    "section": "",
-    "text": "Both represent ordered group of elements\n\n\n\nLanguage\nArray and String\n\n\n\n\nPython\nImmutable\n\n\nJava\nImmutable.\n\n\nC++\nMutable"
-  },
-  {
     "objectID": "posts/spotify-rewrapped/spotify-rewrapped.html",
     "href": "posts/spotify-rewrapped/spotify-rewrapped.html",
     "title": "Spotify Re-Wrapped",
@@ -56,193 +49,18 @@
     "text": "Exploratory Data Analysis\n\nLyrics &lt;- read_excel(\"RobZombieSheet.xlsx\")\nhead(Lyrics)\n\n# A tibble: 6 × 3\n  song_name           lyrics                                     song_length_sec\n  &lt;chr&gt;               &lt;chr&gt;                                                &lt;dbl&gt;\n1 Call of the zombie  \"And out of the darkness, the Zombie did …              30\n2 Superbeast          \"Shriek the lips\\nAcross ragged tongue,\\n…             220\n3 Dragula             \"Dead I am the one, Exterminating son\\nSl…             222\n4 Living Dead Girl    \"Rage in the cage\\nAnd piss upon the stag…             201\n5 Perversion 99        &lt;NA&gt;                                                  103\n6 Demonoid Phenomenon \"Hell on Earth\\nFor What It's Worth\\nDead…             251\n\n\n\nCleanLyrics &lt;- Lyrics %&gt;%\n  unnest_tokens(word, lyrics, token = \"words\") %&gt;%   \n filter(!word %in% stop_words$word, str_detect(word, \"[a-z]\"))\nhead(CleanLyrics, 10)\n\n# A tibble: 10 × 3\n   song_name          song_length_sec word     \n   &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;    \n 1 Call of the zombie              30 darkness \n 2 Call of the zombie              30 zombie   \n 3 Call of the zombie              30 call     \n 4 Call of the zombie              30 true     \n 5 Call of the zombie              30 pain     \n 6 Call of the zombie              30 suffering\n 7 Call of the zombie              30 brought  \n 8 Call of the zombie              30 ran      \n 9 Call of the zombie              30 children \n10 Call of the zombie              30 hide     \n\n\n\nSent &lt;- CleanLyrics %&gt;%\n  inner_join(get_sentiments(\"bing\")) %&gt;%\n count(song_name, sentiment) %&gt;%\n spread(sentiment, n, fill = 0)%&gt;%\n mutate(sentiment = positive - negative)\n\nJoining with `by = join_by(word)`\n\nSent\n\n# A tibble: 12 × 4\n   song_name                                     negative positive sentiment\n   &lt;chr&gt;                                            &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n 1 Call of the zombie                                   6        0        -6\n 2 Demonoid Phenomenon                                 18        2       -16\n 3 Dragula                                             27        3       -24\n 4 How to make a monster                               16        0       -16\n 5 Living Dead Girl                                    34        3       -31\n 6 meet the creeper                                    11        3        -8\n 7 Return of the phantom stranger                      16        6       -10\n 8 spookshow baby                                      13        3       -10\n 9 Superbeast                                          34        5       -29\n10 Th beginning of the end                              3        0        -3\n11 The ballad of resurrection joe and rosa whore       25       16        -9\n12 What lurks on channel x                             12        0       -12\n\n\n\nFreq &lt;- CleanLyrics %&gt;% group_by(word) %&gt;% \n summarise(uses = n()) %&gt;% \n arrange(desc(uses))\nhead(Freq)\n\n# A tibble: 6 × 2\n  word    uses\n  &lt;chr&gt;  &lt;int&gt;\n1 yeah      45\n2 dead      25\n3 baby      22\n4 ragged    14\n5 love      13\n6 meet      13\n\n\n\nFreq %&gt;%\n  slice(1:20) %&gt;%\n  ggplot() + \n geom_bar(aes(x = reorder(word, uses), y = uses), stat = \"identity\", color = 'purple', fill = 'green') +\n coord_flip() + \n labs(y = \"Frequency of use\",\n x = \"Words\") +\n theme_minimal() + \ntheme_dark() + \n  ggtitle('Frequency of Words in Rob Zombie Songs')\n\n\n\n\n\nLyricCloud&lt;- CleanLyrics%&gt;%\n  anti_join(stop_words) %&gt;%\n  count(word) %&gt;%\n  with(wordcloud(word, n, color = c(\"maroon\"), max.words=100))\n\nJoining with `by = join_by(word)`\n\n\n\n\n\n\nwordcloud2(data = Freq,color = \"random-dark\", backgroundColor = \"grey\",  minRotation = pi/3, maxRotation = -pi/6, minSize = 10,\n  rotateRatio = 1)\n\n\n\n\n\n\nLyricsCloud2&lt;- CleanLyrics%&gt;%\n  inner_join(get_sentiments(\"bing\")) %&gt;%\n  count(word, sentiment, sort = TRUE) %&gt;%\n  acast(word~sentiment, value.var =\"n\", fill=0) %&gt;%\n  comparison.cloud(colors = c(\"black\",\"green\"), max.words = 100)\n\nJoining with `by = join_by(word)`\n\n\n\n\n\n\nggplot(data = Sent) + \n  geom_point(aes(x = song_name,\n                 y=sentiment, color = Sent$sentiment)) +\n  theme_minimal() +\n  coord_flip() +\n  theme_dark() +\n  ggtitle('Sentiment Score Comparison') + \n  scale_colour_gradient(low = \"green\", high = \"orange\") + \n  guides(color = guide_legend(title = \"Sentiment Range\")) +\n  theme(axis.text = element_text(size = 6), \n        axis.title = element_text(size = 14),\n        plot.title = element_text(size = 18, face = \"bold\")) + \n  xlab('Song Name') + \n  ylab('Sentiment')\n\n\n\n\n\nCleanWords &lt;- CleanLyrics %&gt;%\ninner_join(get_sentiments(\"nrc\")) %&gt;%\n  group_by(sentiment, word) %&gt;%\n  count(mycount = n()) %&gt;%\n  distinct() %&gt;%\n  filter(sentiment %in%\n  c(\"trust\", \"joy\",\"surprise\",\"anticipation\", \"fear\", \"anger\", \"disgust\", \"sadness\"))\n\nJoining with `by = join_by(word)`\n\nhead(CleanLyrics)\n\n# A tibble: 6 × 3\n  song_name          song_length_sec word     \n  &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;    \n1 Call of the zombie              30 darkness \n2 Call of the zombie              30 zombie   \n3 Call of the zombie              30 call     \n4 Call of the zombie              30 true     \n5 Call of the zombie              30 pain     \n6 Call of the zombie              30 suffering\n\n\n\nCleanWords %&gt;%\n  ggplot() + \n geom_bar(aes(x = sentiment), color = 'green', fill = 'purple') +\n coord_flip() + \n labs(y = \"Frequency\",\n x = \"Sentiment\") +\n theme_minimal() + \ntheme_dark() + \n  ggtitle('Frequency of Sentiment')\n\n\n\n\n\nclean &lt;- merge(CleanLyrics, CleanWords, by = \"word\")\n\n\nSentBySong&lt;- data.frame(table(clean$song_name, clean$sentiment))\n\n\nggplot(SentBySong, aes(x = Var2, y = Freq, color = Var1), cex = 0.2) + \n        geom_point() + \n        facet_wrap(~ Var1) +\n        theme_dark() +\n        theme(text = element_text(size=5),\n        axis.text.x = element_text(angle=90, hjust=1)) +\n        guides(color = guide_legend(title = \"Song Names\")) +\n        xlab(\"Sentiment\") +\n        ylab(\"Frequency\") +\n        ggtitle(\"Frequency of Sentiment by Song\") +\n        theme(plot.title = element_text(hjust = 0.5))\n\n\n\n\n\nggplot(Lyrics, aes(x= song_length_sec, y=song_name, fill = song_name)) +\n  geom_bar(stat=\"identity\") +\n  theme_dark() +\n  theme(text = element_text(size=8),\n  axis.text.x = element_text(angle=60, hjust=1)) +\n  theme(legend.position=\"none\") +\n  coord_flip() +\n  xlab(\"Song Length\") +\n  ylab(\"Song Name\") +\n  ggtitle(\"Duration of General Sentiment by Song\") +\n  theme(plot.title = element_text(hjust = 0.5))"
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
+    "objectID": "code/hashing /hashing.html",
+    "href": "code/hashing /hashing.html",
+    "title": "Hashing",
     "section": "",
-    "text": "Shiny Fitness Application\n\n\n\n\n\nShiny application serving as a generalized fitness guide. This tool assists users in calculating metrics like basic metabolic rate (BMR), total daily energy expenditure (TDEE), macronutrients, and even generating personalized meal plans via the ChatGPT API.\n\n\n\n\n\n\nJan 12, 2024\n\n\nValentina Colorado,\n\n\n\n\n\n\n  \n\n\n\n\nData Mining Text Mining Adventure\n\n\n\n\n\nUsing data mining text mining sentiment analysis to explore the emotional impact of Rob Zombie’s iconic album, Hellbilly Deluxe (1998).\n\n\n\n\n\n\nJan 10, 2024\n\n\nValentina Colorado, Alexandra Desaulniers\n\n\n\n\n\n\n  \n\n\n\n\nSpotify Re-Wrapped\n\n\n\n\n\nUsing Spotify listening data to create data analysis on my listening history. Also including an interactive tab where users can upload their own spotify data to get personalized song reccomendations\n\n\n\n\n\n\nMay 1, 2023\n\n\nValentina Colorado, Isabel Zimmerman\n\n\n\n\n\n\nNo matching items"
+    "text": "A hash map is an unordered data structure that stores key-value pairs"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "valentina colorado",
-    "section": "",
-    "text": "Florida Polytechnic University | Lakeland, FL\nMS in Computer Science | Jan 2023 - Dec 2023\nFlorida Polytechnic University | Lakeland, FL\nBS in Computer Science | Aug 2019 - May 2022"
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "valentina colorado",
-    "section": "",
-    "text": "Florida Polytechnic University | Lakeland, FL\nMS in Computer Science | Jan 2023 - Dec 2023\nFlorida Polytechnic University | Lakeland, FL\nBS in Computer Science | Aug 2019 - May 2022"
-  },
-  {
-    "objectID": "index.html#publications",
-    "href": "index.html#publications",
-    "title": "valentina colorado",
-    "section": "Publications",
-    "text": "Publications\nInsight into the Capabilities of Machine Learning Explainability Software Through the Evaluation of Two Prominent Open-Source Tools | 2023 Published by AS-Proceedings"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#two-pointers-examples",
-    "href": "posts/data-structures/data-structures-review.html#two-pointers-examples",
-    "title": "Data Structure Array Review",
-    "section": "Two Pointers Examples",
-    "text": "Two Pointers Examples\n\nReverse String Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory\n\n\nJavaPython\n\n\n public static void reverseString(char[] s) {\n        int i = s.length-1; \n        int j= 0; \n        \n        while(i &gt; j ){\n            char tmp = s[j];\n            s[j++]=s[i];\n            s[i--]=tmp;\n        }\n        System.out.println(s);\n        \n    }   \n\n\n\nclass Solution(object):\n    def reverseString(self, s):\n    s.reverse()\n\n\n\n\nSquares of a Sorted Array Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.\n\n\nJavaJavaPython\n\n\n    public int[] sortedSquares(int[] nums) {\n        \n        int left = 0;\n        int right = nums.length-1;\n\n        while(left &lt;= right){\n        \n            int tmp = nums[left]*nums[left];\n            nums[left] = tmp;\n            left++;\n        }\n        Arrays.sort(nums);\n\n        return nums;\n    }\n\n\n//After my first submission I realized this could be cleaner\n    public int[] sortedSquares(int[] nums) {\n        for(int i=0; i&lt; nums.length;i++){\n            nums[i] = nums[i] * nums[i];\n        }\n        Arrays.sort(nums);\n        return nums;\n    }\n\n\ndef sortedSquares(self, nums: List[int]) -&gt; List[int]:\n  for i in range(len(nums)):\n      nums[i] = nums[i] *nums[i]\n  nums = sorted(nums)\n  return nums"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#subarrays",
-    "href": "posts/data-structures/data-structures-review.html#subarrays",
-    "title": "Data Structure Array Review",
-    "section": "Subarrays",
-    "text": "Subarrays\nContinuous section of the array. All the elements must be adjacent to each other and in their original order\nExample: [1,2,3,4]\n\n[1],[2],[3],[4]\n[1,2],[2,3],[3,4]\n[1,2,3], [2,3,4]\n\nIdentifying when to use this:\nThe problem will: 1. Explicitly or implicitly define criteria that makes a subarray “valid”. 2. Ask you to find valid subarrays in some way - find the “best” valid subarray - finding the number of valid subarrays"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#psudocode-1",
-    "href": "posts/data-structures/data-structures-review.html#psudocode-1",
-    "title": "Data Structure Array Review",
-    "section": "Psudocode",
-    "text": "Psudocode\nfunction fn(nums, k):\n    left = 0\n    curr = 0\n    answer = 0\n    for (int right = 0; right &lt; nums.length; right++):\n        curr += nums[right]\n        while (curr &gt; k):\n            curr -= nums[left]\n            left++\n\n        answer = max(answer, right - left + 1)\n\n    return answer\n\nExample 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. This is the problem we have been talking about above. We will now formally solve it."
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#java-7",
-    "href": "posts/data-structures/data-structures-review.html#java-7",
-    "title": "Data Structure Array Review",
-    "section": "Java",
-    "text": "Java\n    public static int subarray(int[] nums, int k) {\n        int left =0;\n        int sum = 0;\n        int answer = 0;\n\n        for(int right =0; right&lt;nums.length;right++){\n            sum += nums[right];\n            while(sum &gt; k){\n                sum -= nums[left];\n                left++;\n            }\n            answer = Math.max(answer, right - left + 1);\n\n        }\n\nExample 2: You are given a binary string s (a string containing only “0” and “1”). You may choose up to one “0” and flip it to a “1”. What is the length of the longest substring achievable that contains only “1”? For example, given s = “1101100111”, the answer is 5. If you perform the flip at index 2, the string becomes 1111100111.\n\n\nJavaPython\n\n\npublic static int binarySubarray(String s) {\n    int left =0;\n    int counter = 0;\n    int answer = 0;\n\n    for(int i =0; i&lt;s.length();i++){\n        if (s.charAt(i)== '0') {\n            counter++;\n\n        }\n\n        while(counter &gt; 1){\n            if (s.charAt(left) == '0') {\n                counter--;\n            }\n\n            left++;\n        }\n\n        answer = Math.max(answer, i - left + 1);\n    }\n\n        \n        return answer;\n\n    }\n\n\ndef binarySubarray(s):\n\n    left=counter=answer=0\n\n    for i in range(len(s)):\n        if s[i] ==\"0\":\n            counter +=1\n        while counter &gt; 1:\n            if(s[left] == \"0\"):\n                counter -= 1\n            left += 1\n\n        ans = max(answer, i - left + 1)\n\n    return(ans)"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#number-of-subarrays",
-    "href": "posts/data-structures/data-structures-review.html#number-of-subarrays",
-    "title": "Data Structure Array Review",
-    "section": "Number of Subarrays",
-    "text": "Number of Subarrays\n\nExample 3: 713. Subarray Product Less Than K. Given an array of positive integers nums and an integer k, return the number of subarrays where the product of all the elements in the subarray is strictly less than k. For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The subarrays with products less than k are:[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]\n\npublic static int productLessThan(int[] nums, int k) {\n        int left =0;\n        int counter = 1;\n        int answer = 0;\n\n        if (k &lt;= 1) {\n            return 0;\n        }\n        for(int right =0; right&lt;nums.length;right++){\n            counter *= nums[right];\n            while(counter&gt;=k){\n                counter /= nums[left]; //opposite of multiplication remove that element \n                left += 1;\n            }\n            answer += right -left +1;\n    }\n        return answer;\n\n    }"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#fixed-window-size",
-    "href": "posts/data-structures/data-structures-review.html#fixed-window-size",
-    "title": "Data Structure Array Review",
-    "section": "Fixed window size",
-    "text": "Fixed window size"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#psudocode-2",
-    "href": "posts/data-structures/data-structures-review.html#psudocode-2",
-    "title": "Data Structure Array Review",
-    "section": "Psudocode",
-    "text": "Psudocode\nfunction fn(arr, k):\n    curr = some data to track the window\n\n    // build the first window\n    for (int i = 0; i &lt; k; i++)\n        Do something with curr or other variables to build first window\n\n    ans = answer variable, probably equal to curr here depending on the problem\n    for (int i = k; i &lt; arr.length; i++)\n        Add arr[i] to window\n        Remove arr[i - k] from window\n        Update ans\n\n    return ans"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#leetcode-problem",
-    "href": "posts/data-structures/data-structures-review.html#leetcode-problem",
-    "title": "Data Structure Array Review",
-    "section": "Leetcode Problem",
-    "text": "Leetcode Problem\n\nExample 4: Given an integer array nums and an integer k, find the sum of the subarray with the largest sum whose length is k.\n\npublic static int productLessThan(int[] nums, int k) {\n        int left =0;\n        int counter = 1;\n        int answer = 0;\n\n        if (k &lt;= 1) {\n            return 0;\n        }\n        for(int right =0; right&lt;nums.length;right++){\n            counter *= nums[right];\n            while(counter&gt;=k){\n                counter /= nums[left]; //opposite of multiplication remove that element \n                left += 1;\n            }\n            answer += right -left +1;\n    }\n        return answer;\n\n    }\n1004. Max Consecutive Ones III: Given a binary array nums and an integer k, return the maximum number of consecutive 1’s in the array if you can flip at most k 0’s.\nExample 1: Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2 Output: 6 Explanation: [1,1,1,0,0,1,1,1,1,1,1] Bolded numbers were flipped from 0 to 1. The longest subarray is underlined..\n\nJava\n\n\npublic static int productLessThan(int[] nums, int k) {\n        int left =0;\n        int counter = 1;\n        int answer = 0;\n\n        if (k &lt;= 1) {\n            return 0;\n        }\n        for(int right =0; right&lt;nums.length;right++){\n            counter *= nums[right];\n            while(counter&gt;=k){\n                counter /= nums[left]; //opposite of multiplication remove that element \n                left += 1;\n            }\n            answer += right -left +1;\n    }\n        return answer;\n\n    }\nTime complexity:O(n) Space complexity:O(1) 3ms Runtime Beats 79.28% of users with Java"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#leetcode-problem-1",
-    "href": "posts/data-structures/data-structures-review.html#leetcode-problem-1",
-    "title": "Data Structure Array Review",
-    "section": "Leetcode Problem",
-    "text": "Leetcode Problem\nGiven an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]). Return the running sum of nums\nExample 1: Input: nums = [1,2,3,4] Output: [1,3,6,10] Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].\n\nJava\n\n\n    private static int[] runningSum(int[] nums) {\n        int [] prefix = new int[nums.length];\n        prefix[0]=nums[0];\n        for(int i=1;i&lt;nums.length;i++){\n            prefix[i] = nums[i]+prefix[i-1];\n        }\n        return prefix;\n\n    }\nTime complexity:O(n) Space complexity:O(n) It creates an additional array prefix of the same length as the input array nums. The size of the prefix array is proportional to the size of the input array, making the space complexity linear.\nRuntime 0ms Beats100.00% of users with Java"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#on-string-building",
-    "href": "posts/data-structures/data-structures-review.html#on-string-building",
-    "title": "Data Structure Array Review",
-    "section": "O(n) String Building",
-    "text": "O(n) String Building\n\nPythonJava\n\n\ndef build_string(s):\n  arr=[] #declar a list\n  for c in s\n      arr.append(c) #add the characters to the list \n    return \"\".join(list) # convert the list to a string \nO(n)\n\n\npublic string buildString(String s) {\n    StringBuilder sb = new StringBuilder(); //use string builder\n    for (int i = 0; i &lt; s.length(); i++) {\n        sb.append(s.charAt(i)); // add character to the list\n    }\n    StringBuilder.toString() // convert list to string\n    return sb.toString();\n\n    \nO(n)"
-  },
-  {
-    "objectID": "posts/data-structures/data-structures-review.html#subarrayssubstrings-subsequences-and-subsets",
-    "href": "posts/data-structures/data-structures-review.html#subarrayssubstrings-subsequences-and-subsets",
-    "title": "Data Structure Array Review",
-    "section": "Subarrays/substrings, subsequences, and subsets",
-    "text": "Subarrays/substrings, subsequences, and subsets"
-  },
-  {
-    "objectID": "leetcode.html",
-    "href": "leetcode.html",
-    "title": "Leetcode",
-    "section": "",
-    "text": "Arrays and Strings\n\n\n\n\n\nGoing over basic arrays and strings content and leetcode problems\n\n\n\n\n\n\nJan 28, 2024\n\n\nValentina Colorado\n\n\n\n\n\n\n  \n\n\n\n\nHashing\n\n\n\n\n\nGoing over hashing topics and leetcode problems\n\n\n\n\n\n\nJan 3, 2024\n\n\nValentina Colorado\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html",
-    "href": "code/data-structures/data-structures-review.html",
-    "title": "Arrays and Strings",
-    "section": "",
-    "text": "Both represent ordered group of elements\n\n\n\nLanguage\nArray and String\n\n\n\n\nPython\nImmutable\n\n\nJava\nImmutable.\n\n\nC++\nMutable"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#two-pointers-examples",
-    "href": "code/data-structures/data-structures-review.html#two-pointers-examples",
-    "title": "Arrays and Strings",
-    "section": "Two Pointers Examples",
-    "text": "Two Pointers Examples\n\nReverse String Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory\n\n\nJavaPython\n\n\n public static void reverseString(char[] s) {\n        int i = s.length-1; \n        int j= 0; \n        \n        while(i &gt; j ){\n            char tmp = s[j];\n            s[j++]=s[i];\n            s[i--]=tmp;\n        }\n        System.out.println(s);\n        \n    }   \n\n\n\nclass Solution(object):\n    def reverseString(self, s):\n    s.reverse()\n\n\n\n\nSquares of a Sorted Array Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.\n\n\nJavaJavaPython\n\n\n    public int[] sortedSquares(int[] nums) {\n        \n        int left = 0;\n        int right = nums.length-1;\n\n        while(left &lt;= right){\n        \n            int tmp = nums[left]*nums[left];\n            nums[left] = tmp;\n            left++;\n        }\n        Arrays.sort(nums);\n\n        return nums;\n    }\n\n\n//After my first submission I realized this could be cleaner\n    public int[] sortedSquares(int[] nums) {\n        for(int i=0; i&lt; nums.length;i++){\n            nums[i] = nums[i] * nums[i];\n        }\n        Arrays.sort(nums);\n        return nums;\n    }\n\n\ndef sortedSquares(self, nums: List[int]) -&gt; List[int]:\n  for i in range(len(nums)):\n      nums[i] = nums[i] *nums[i]\n  nums = sorted(nums)\n  return nums"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#subarrays",
-    "href": "code/data-structures/data-structures-review.html#subarrays",
-    "title": "Arrays and Strings",
-    "section": "Subarrays",
-    "text": "Subarrays\nContinuous section of the array. All the elements must be adjacent to each other and in their original order\nExample: [1,2,3,4]\n\n[1],[2],[3],[4]\n[1,2],[2,3],[3,4]\n[1,2,3], [2,3,4]\n\nIdentifying when to use this:\nThe problem will: 1. Explicitly or implicitly define criteria that makes a subarray “valid”. 2. Ask you to find valid subarrays in some way - find the “best” valid subarray - finding the number of valid subarrays"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#psudocode-1",
-    "href": "code/data-structures/data-structures-review.html#psudocode-1",
-    "title": "Arrays and Strings",
-    "section": "Psudocode",
-    "text": "Psudocode\nfunction fn(nums, k):\n    left = 0\n    curr = 0\n    answer = 0\n    for (int right = 0; right &lt; nums.length; right++):\n        curr += nums[right]\n        while (curr &gt; k):\n            curr -= nums[left]\n            left++\n\n        answer = max(answer, right - left + 1)\n\n    return answer\n\nExample 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. This is the problem we have been talking about above. We will now formally solve it."
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#java-7",
-    "href": "code/data-structures/data-structures-review.html#java-7",
-    "title": "Arrays and Strings",
-    "section": "Java",
-    "text": "Java\n    public static int subarray(int[] nums, int k) {\n        int left =0;\n        int sum = 0;\n        int answer = 0;\n\n        for(int right =0; right&lt;nums.length;right++){\n            sum += nums[right];\n            while(sum &gt; k){\n                sum -= nums[left];\n                left++;\n            }\n            answer = Math.max(answer, right - left + 1);\n\n        }\n\nExample 2: You are given a binary string s (a string containing only “0” and “1”). You may choose up to one “0” and flip it to a “1”. What is the length of the longest substring achievable that contains only “1”? For example, given s = “1101100111”, the answer is 5. If you perform the flip at index 2, the string becomes 1111100111.\n\n\nJavaPython\n\n\npublic static int binarySubarray(String s) {\n    int left =0;\n    int counter = 0;\n    int answer = 0;\n\n    for(int i =0; i&lt;s.length();i++){\n        if (s.charAt(i)== '0') {\n            counter++;\n\n        }\n\n        while(counter &gt; 1){\n            if (s.charAt(left) == '0') {\n                counter--;\n            }\n\n            left++;\n        }\n\n        answer = Math.max(answer, i - left + 1);\n    }\n\n        \n        return answer;\n\n    }\n\n\ndef binarySubarray(s):\n\n    left=counter=answer=0\n\n    for i in range(len(s)):\n        if s[i] ==\"0\":\n            counter +=1\n        while counter &gt; 1:\n            if(s[left] == \"0\"):\n                counter -= 1\n            left += 1\n\n        ans = max(answer, i - left + 1)\n\n    return(ans)"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#number-of-subarrays",
-    "href": "code/data-structures/data-structures-review.html#number-of-subarrays",
-    "title": "Arrays and Strings",
-    "section": "Number of Subarrays",
-    "text": "Number of Subarrays\n\nExample 3: 713. Subarray Product Less Than K. Given an array of positive integers nums and an integer k, return the number of subarrays where the product of all the elements in the subarray is strictly less than k. For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The subarrays with products less than k are:[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]\n\npublic static int productLessThan(int[] nums, int k) {\n        int left =0;\n        int counter = 1;\n        int answer = 0;\n\n        if (k &lt;= 1) {\n            return 0;\n        }\n        for(int right =0; right&lt;nums.length;right++){\n            counter *= nums[right];\n            while(counter&gt;=k){\n                counter /= nums[left]; //opposite of multiplication remove that element \n                left += 1;\n            }\n            answer += right -left +1;\n    }\n        return answer;\n\n    }"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#fixed-window-size",
-    "href": "code/data-structures/data-structures-review.html#fixed-window-size",
-    "title": "Arrays and Strings",
-    "section": "Fixed window size",
-    "text": "Fixed window size"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#psudocode-2",
-    "href": "code/data-structures/data-structures-review.html#psudocode-2",
-    "title": "Arrays and Strings",
-    "section": "Psudocode",
-    "text": "Psudocode\nfunction fn(arr, k):\n    curr = some data to track the window\n\n    // build the first window\n    for (int i = 0; i &lt; k; i++)\n        Do something with curr or other variables to build first window\n\n    ans = answer variable, probably equal to curr here depending on the problem\n    for (int i = k; i &lt; arr.length; i++)\n        Add arr[i] to window\n        Remove arr[i - k] from window\n        Update ans\n\n    return ans"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#leetcode-problem",
-    "href": "code/data-structures/data-structures-review.html#leetcode-problem",
-    "title": "Arrays and Strings",
-    "section": "Leetcode Problem",
-    "text": "Leetcode Problem\n\nExample 4: Given an integer array nums and an integer k, find the sum of the subarray with the largest sum whose length is k.\n\npublic static int productLessThan(int[] nums, int k) {\n        int left =0;\n        int counter = 1;\n        int answer = 0;\n\n        if (k &lt;= 1) {\n            return 0;\n        }\n        for(int right =0; right&lt;nums.length;right++){\n            counter *= nums[right];\n            while(counter&gt;=k){\n                counter /= nums[left]; //opposite of multiplication remove that element \n                left += 1;\n            }\n            answer += right -left +1;\n    }\n        return answer;\n\n    }\n1004. Max Consecutive Ones III: Given a binary array nums and an integer k, return the maximum number of consecutive 1’s in the array if you can flip at most k 0’s.\nExample 1: Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2 Output: 6 Explanation: [1,1,1,0,0,1,1,1,1,1,1] Bolded numbers were flipped from 0 to 1. The longest subarray is underlined..\n\nJava\n\n\npublic static int productLessThan(int[] nums, int k) {\n        int left =0;\n        int counter = 1;\n        int answer = 0;\n\n        if (k &lt;= 1) {\n            return 0;\n        }\n        for(int right =0; right&lt;nums.length;right++){\n            counter *= nums[right];\n            while(counter&gt;=k){\n                counter /= nums[left]; //opposite of multiplication remove that element \n                left += 1;\n            }\n            answer += right -left +1;\n    }\n        return answer;\n\n    }\nTime complexity:O(n) Space complexity:O(1) 3ms Runtime Beats 79.28% of users with Java"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#leetcode-problem-1",
-    "href": "code/data-structures/data-structures-review.html#leetcode-problem-1",
-    "title": "Arrays and Strings",
-    "section": "Leetcode Problem",
-    "text": "Leetcode Problem\nGiven an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]). Return the running sum of nums\nExample 1: Input: nums = [1,2,3,4] Output: [1,3,6,10] Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].\n\nJava\n\n\n    private static int[] runningSum(int[] nums) {\n        int [] prefix = new int[nums.length];\n        prefix[0]=nums[0];\n        for(int i=1;i&lt;nums.length;i++){\n            prefix[i] = nums[i]+prefix[i-1];\n        }\n        return prefix;\n\n    }\nTime complexity:O(n) Space complexity:O(n) It creates an additional array prefix of the same length as the input array nums. The size of the prefix array is proportional to the size of the input array, making the space complexity linear.\nRuntime 0ms Beats100.00% of users with Java"
-  },
-  {
-    "objectID": "code/data-structures/data-structures-review.html#on-string-building",
-    "href": "code/data-structures/data-structures-review.html#on-string-building",
-    "title": "Arrays and Strings",
-    "section": "O(n) String Building",
-    "text": "O(n) String Building\n\nPythonJava\n\n\ndef build_string(s):\n  arr=[] #declar a list\n  for c in s\n      arr.append(c) #add the characters to the list \n    return \"\".join(list) # convert the list to a string \nO(n)\n\n\npublic string buildString(String s) {\n    StringBuilder sb = new StringBuilder(); //use string builder\n    for (int i = 0; i &lt; s.length(); i++) {\n        sb.append(s.charAt(i)); // add character to the list\n    }\n    StringBuilder.toString() // convert list to string\n    return sb.toString();\n\n    \nO(n)"
+    "objectID": "code/hashing /hashing.html#checking-for-existence",
+    "href": "code/hashing /hashing.html#checking-for-existence",
+    "title": "Hashing",
+    "section": "Checking for Existence",
+    "text": "Checking for Existence\nExample 1: 1. Two Sum Given an array of integers nums and an integer target, return indices of two numbers such that they add up to target. You cannot use the same index twice.\n\nJavaPython\n\n\n\n    private static int[] targetSumHash(int[] nums, int target) {\n\n        Map&lt;Integer, Integer&gt; hasMap = new HashMap&lt;&gt;();\n\n        for(int i=0; i&lt;nums.length;i++){\n            int num = nums[i];\n            int complement = target - num;\n            if(hasMap.containsKey(complement)){ // This operation is O(1)!\n                System.out.println(hasMap.get(complement));\n                return new int[] {i, hasMap.get(complement)};\n            }\n            hasMap.put(num,i);\n        }\n        return new int[] {-1,1};\n    \n    }\n\n\ndef twoSum(nums: list[int], target: int) -&gt; list[int]:\n    hash = {}\n    for i in range(len(nums)):\n        num = nums[i]\n        complement = target - num\n        if complement in hash: # This operation is O(1)!\n            return [i,hash[complement]]\n        hash[num]=i\n    return [-1,-1]\nTime: O(n) Space O(n)\n\n\n\nExample 2: 2351. First Letter to Appear Twice Given a string s, return the first character to appear twice. It is guaranteed that the input will have a duplicate character.\n\nJavaPython\n\n\n\nprivate static char repeatedCharacter(String s) {\n  Set&lt;Character&gt; seen = new HashSet&lt;&gt;();\n  for(int i=0; i&lt;s.length();i++){\n      char c = s.charAt(i);\n      if(seen.contains(c)){\n          return c;\n            }\n      seen.add(c);\n        }\n        return ' ';\n        \n    }\n\n\ndef repeatedChar(self, s: str)-&gt;str:\n    seen =set()\n    for i in s:\n        c = s[i]\n        if c in s:\n            return c\n        seen.add(c)\n    return \" \"\nTime: O(n) Space O(1)-&gt;26 letters in the alphabet or O(m) m number of allowable characters in the input\n\n\n\nExample 3: Given an integer array nums, find all the unique numbers x in nums that satisfy the following: x + 1 is not in nums, and x - 1 is not in nums."
   },
   {
     "objectID": "code/array-strings/array-string.html",
@@ -322,31 +140,38 @@
     "text": "O(n) String Building\n\nPythonJava\n\n\ndef build_string(s):\n  arr=[] #declar a list\n  for c in s\n      arr.append(c) #add the characters to the list \n    return \"\".join(list) # convert the list to a string \nO(n)\n\n\npublic string buildString(String s) {\n    StringBuilder sb = new StringBuilder(); //use string builder\n    for (int i = 0; i &lt; s.length(); i++) {\n        sb.append(s.charAt(i)); // add character to the list\n    }\n    StringBuilder.toString() // convert list to string\n    return sb.toString();\n\n    \nO(n)"
   },
   {
-    "objectID": "code/hashing /hashing.html",
-    "href": "code/hashing /hashing.html",
-    "title": "Hashing",
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
     "section": "",
-    "text": "A hash map is an unordered data structure that stores key-value pairs"
+    "text": "Shiny Fitness Application\n\n\n\n\n\nShiny application serving as a generalized fitness guide. This tool assists users in calculating metrics like basic metabolic rate (BMR), total daily energy expenditure (TDEE), macronutrients, and even generating personalized meal plans via the ChatGPT API.\n\n\n\n\n\n\nJan 12, 2024\n\n\nValentina Colorado,\n\n\n\n\n\n\n  \n\n\n\n\nData Mining Text Mining Adventure\n\n\n\n\n\nUsing data mining text mining sentiment analysis to explore the emotional impact of Rob Zombie’s iconic album, Hellbilly Deluxe (1998).\n\n\n\n\n\n\nJan 10, 2024\n\n\nValentina Colorado, Alexandra Desaulniers\n\n\n\n\n\n\n  \n\n\n\n\nSpotify Re-Wrapped\n\n\n\n\n\nUsing Spotify listening data to create data analysis on my listening history. Also including an interactive tab where users can upload their own spotify data to get personalized song reccomendations\n\n\n\n\n\n\nMay 1, 2023\n\n\nValentina Colorado, Isabel Zimmerman\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "code/hashing /hashing.html#chaining",
-    "href": "code/hashing /hashing.html#chaining",
-    "title": "Hashing",
-    "section": "Chaining",
-    "text": "Chaining\nWhen different keys convert to the same integer, it is called a collision-older keys get overridden and data is lost- There are multiple ways to handle collisions, but here we’ll talk about a common one called chaining."
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "valentina colorado",
+    "section": "",
+    "text": "Florida Polytechnic University | Lakeland, FL\nMS in Computer Science | Jan 2023 - Dec 2023\nFlorida Polytechnic University | Lakeland, FL\nBS in Computer Science | Aug 2019 - May 2022"
   },
   {
-    "objectID": "code/hashing /hashing.html#sets",
-    "href": "code/hashing /hashing.html#sets",
-    "title": "Hashing",
-    "section": "Sets",
-    "text": "Sets\nsimilar to hash table. However, sets do not map their keys to anything. Useful when you only care about checking if elements exist. Does not track frequency"
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "valentina colorado",
+    "section": "",
+    "text": "Florida Polytechnic University | Lakeland, FL\nMS in Computer Science | Jan 2023 - Dec 2023\nFlorida Polytechnic University | Lakeland, FL\nBS in Computer Science | Aug 2019 - May 2022"
   },
   {
-    "objectID": "code/hashing /hashing.html#checking-for-existence",
-    "href": "code/hashing /hashing.html#checking-for-existence",
-    "title": "Hashing",
-    "section": "Checking for Existence",
-    "text": "Checking for Existence\nExample 1: 1. Two Sum Given an array of integers nums and an integer target, return indices of two numbers such that they add up to target. You cannot use the same index twice.\n\nJavaPython\n\n\n\n    private static int[] targetSumHash(int[] nums, int target) {\n\n        Map&lt;Integer, Integer&gt; hasMap = new HashMap&lt;&gt;();\n\n        for(int i=0; i&lt;nums.length;i++){\n            int num = nums[i];\n            int complement = target - num;\n            if(hasMap.containsKey(complement)){ // This operation is O(1)!\n                System.out.println(hasMap.get(complement));\n                return new int[] {i, hasMap.get(complement)};\n            }\n            hasMap.put(num,i);\n        }\n        return new int[] {-1,1};\n    \n    }\n\n\ndef twoSum(nums: list[int], target: int) -&gt; list[int]:\n    hash = {}\n    for i in range(len(nums)):\n        num = nums[i]\n        complement = target - num\n        if complement in hash: # This operation is O(1)!\n            return [i,hash[complement]]\n        hash[num]=i\n    return [-1,-1]\nTime: O(n) Space O(n)\n\n\n\nExample 2: 2351. First Letter to Appear Twice Given a string s, return the first character to appear twice. It is guaranteed that the input will have a duplicate character.\n\nJavaPython\n\n\n\nprivate static char repeatedCharacter(String s) {\n  Set&lt;Character&gt; seen = new HashSet&lt;&gt;();\n  for(int i=0; i&lt;s.length();i++){\n      char c = s.charAt(i);\n      if(seen.contains(c)){\n          return c;\n            }\n      seen.add(c);\n        }\n        return ' ';\n        \n    }\n\n\ndef repeatedChar(self, s: str)-&gt;str:\n    seen =set()\n    for i in s:\n        c = s[i]\n        if c in s:\n            return c\n        seen.add(c)\n    return \" \"\nTime: O(n) Space O(1)-&gt;26 letters in the alphabet or O(m) m number of allowable characters in the input\n\n\n\nExample 3: Given an integer array nums, find all the unique numbers x in nums that satisfy the following: x + 1 is not in nums, and x - 1 is not in nums."
+    "objectID": "index.html#publications",
+    "href": "index.html#publications",
+    "title": "valentina colorado",
+    "section": "Publications",
+    "text": "Publications\nInsight into the Capabilities of Machine Learning Explainability Software Through the Evaluation of Two Prominent Open-Source Tools | 2023 Published by AS-Proceedings"
+  },
+  {
+    "objectID": "leetcode.html",
+    "href": "leetcode.html",
+    "title": "Leetcode",
+    "section": "",
+    "text": "Arrays and Strings\n\n\n\n\n\nGoing over basic arrays and strings content and leetcode problems\n\n\n\n\n\n\nJan 28, 2024\n\n\nValentina Colorado\n\n\n\n\n\n\n  \n\n\n\n\nHashing\n\n\n\n\n\nGoing over hashing topics and leetcode problems\n\n\n\n\n\n\nJan 3, 2024\n\n\nValentina Colorado\n\n\n\n\n\n\nNo matching items"
   }
 ]
