@@ -1,1 +1,1 @@
-Sitemap: https://ValColorado.github.io/sitemap.xml
+Sitemap: https://ValColorado.github.io/valcolorado.github.io/sitemap.xml

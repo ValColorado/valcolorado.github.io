@@ -1,9 +1,17 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/projects.html",
     "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/fitness-friend/fitness.html",
+      "/posts/rob-zombie/index.html",
+      "/posts/spotify-rewrapped/spotify-rewrapped.html"
+    ]
+  },
+  {
+    "listing": "/leetcode.html",
+    "items": [
+      "/code/array-strings/array-string.html",
+      "/code/hashing /hashing.html"
     ]
   }
 ]
