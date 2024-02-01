@@ -1,0 +1,3980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>valentina colorado</title>
+<link>https://ValColorado.github.io/valcolorado.github.io/leetcode.html</link>
+<atom:link href="https://ValColorado.github.io/valcolorado.github.io/leetcode.xml" rel="self" type="application/rss+xml"/>
+<description>Valentina Colorado&#39;s personal blog</description>
+<generator>quarto-1.3.306</generator>
+<lastBuildDate>Sun, 28 Jan 2024 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Arrays and Strings</title>
+  <dc:creator>Valentina Colorado</dc:creator>
+  <link>https://ValColorado.github.io/valcolorado.github.io/code/array-strings/array-string.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="arrays-and-strings" class="level1">
+<h1>Arrays and Strings</h1>
+<p><em>Both represent ordered group of elements</em></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Language</th>
+<th>Array and String</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Python</td>
+<td>Immutable</td>
+</tr>
+<tr class="even">
+<td>Java</td>
+<td>Immutable.</td>
+</tr>
+<tr class="odd">
+<td>C++</td>
+<td>Mutable</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="two-pointers" class="level1">
+<h1>Two Pointers</h1>
+<p>Working from the front and back. 1. Start one pointer at first index 0. and the other pointer at last index input.length-1 2. while loop until the pointers == each other</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Psudocode</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> function fn(arr):</span>
+<span id="cb1-2">  left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-3">  right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> arr.length<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb1-4">  </span>
+<span id="cb1-5">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> right:</span>
+<span id="cb1-6">    So some logic here depending on the problem </span>
+<span id="cb1-7">    <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.</span> left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++</span></span>
+<span id="cb1-8">    <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span></span>
+<span id="cb1-9">    <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.</span> both left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span> </span>
+<span id="cb1-10">  </span>
+<span id="cb1-11">  </span></code></pre></div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Use two pointers to check if a string is palindrome</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">class</span> Palindrome <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb2-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">void</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">main</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> args<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb2-3">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"racecar"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-4"></span>
+<span id="cb2-5">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">checkIfPalindrome</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span></span>
+<span id="cb2-6">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb2-7">        </span>
+<span id="cb2-8">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">boolean</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">checkIfPalindrome</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb2-9">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-10">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-11"></span>
+<span id="cb2-12">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb2-13">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)==</span> s1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)){</span></span>
+<span id="cb2-14">                left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb2-15">                right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--;</span></span>
+<span id="cb2-16">                </span>
+<span id="cb2-17">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb2-18">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb2-19">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-20">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb2-21">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb2-22">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-23"></span>
+<span id="cb2-24">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb2-25"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> main():</span>
+<span id="cb3-2">      s <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"racecar"</span></span>
+<span id="cb3-3">      <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(checkIfPalindrome(s))</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> checkIfPalindrome(s: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>:</span>
+<span id="cb3-6"></span>
+<span id="cb3-7">    left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb3-8">    right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(s)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb3-9"></span>
+<span id="cb3-10">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>right:</span>
+<span id="cb3-11">        </span>
+<span id="cb3-12">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(s[left] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> s[right]):</span>
+<span id="cb3-13">            left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> left</span>
+<span id="cb3-14">            right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-=</span> right</span>
+<span id="cb3-15">                </span>
+<span id="cb3-16">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span>:</span>
+<span id="cb3-17">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-18">                </span>
+<span id="cb3-19">            </span>
+<span id="cb3-20">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-21"></span></code></pre></div>
+</div>
+</div>
+</div>
+<p><em>Time: O(n) Space:O(1)</em></p>
+<blockquote class="blockquote">
+<p>Example 2: Given a sorted array of unique integers and a target integer, return true if there exists a pair of numbers that sum to target, false otherwise. This problem is similar to Two Sum. (In Two Sum, the input is not sorted). For example, given nums = [1, 2, 4, 6, 8, 9, 14, 15] and target = 13, return true because 4 + 9 = 13.</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" aria-controls="tabset-3-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" aria-controls="tabset-3-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb4-1">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">boolean</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">targetSum</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> target<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb4-2"></span>
+<span id="cb4-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb4-4">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb4-5"></span>
+<span id="cb4-6"></span>
+<span id="cb4-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb4-8">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]+</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb4-9">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> target<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb4-10">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> </span>
+<span id="cb4-11">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-12">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>sum<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>target<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb4-13">                right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--;</span></span>
+<span id="cb4-14"></span>
+<span id="cb4-15">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-16">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb4-17">                left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb4-18">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-19">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb4-20">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb4-21">        </span>
+<span id="cb4-22"></span>
+<span id="cb4-23">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" aria-labelledby="tabset-3-2-tab">
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> targetSum(nums:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>], target:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span> ) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>:</span>
+<span id="cb5-2"></span>
+<span id="cb5-3">    left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb5-4">    right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(nums)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-5"></span>
+<span id="cb5-6"></span>
+<span id="cb5-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>right:</span>
+<span id="cb5-8">         <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums[left]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>nums[right]</span>
+<span id="cb5-9">         <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> target):</span>
+<span id="cb5-10">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb5-11">         <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">elif</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>target):</span>
+<span id="cb5-12">             right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-13">         <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span>:</span>
+<span id="cb5-14">             left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-15">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<p><em>Time: O(n) Space:O(1)</em></p>
+<blockquote class="blockquote">
+<p>Example 3: Given two sorted integer arrays arr1 and arr2, return a new array that combines both of them and is also sorted.</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" aria-controls="tabset-4-1" aria-selected="true">Java</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">List</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">combinedSorted</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> arr1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span>arr2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb6-2"></span>
+<span id="cb6-3">        </span>
+<span id="cb6-4">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">List</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>  arr3 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">ArrayList</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;();</span></span>
+<span id="cb6-5">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb6-6">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb6-7"></span>
+<span id="cb6-8">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>arr1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>arr2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb6-9">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>arr1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]&lt;</span>arr2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]){</span></span>
+<span id="cb6-10">                arr3<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>arr1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]);</span></span>
+<span id="cb6-11">                i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb6-12">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-13">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb6-14">                arr3<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>arr2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]);</span></span>
+<span id="cb6-15">                j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb6-16">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-17">            </span>
+<span id="cb6-18">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-19">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// After the first while loop one of the arrays will have gone through completly</span></span>
+<span id="cb6-20">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> arr1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb6-21">            arr3<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>arr1<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]);</span></span>
+<span id="cb6-22">            i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb6-23">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-24">    </span>
+<span id="cb6-25">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> arr2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb6-26">            arr3<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>arr2<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]);</span></span>
+<span id="cb6-27">            j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb6-28">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-29">    </span>
+<span id="cb6-30">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> arr3<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb6-31">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-32"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb6-33"></span></code></pre></div>
+</div>
+</div>
+</div>
+<p><em>Time: O(n) Space:O(1)</em></p>
+<blockquote class="blockquote">
+<p>Example 4: 392. Is Subsequence. Given two strings s and t, return true if s is a subsequence of t, or false otherwise.</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" aria-controls="tabset-5-1" aria-selected="true">Java</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" aria-labelledby="tabset-5-1-tab">
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"></span>
+<span id="cb7-2"> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">boolean</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">checkIfSubsequence</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> t<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb7-3">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb7-4">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb7-5"></span>
+<span id="cb7-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>t<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()){</span></span>
+<span id="cb7-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)==</span>t<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)){</span></span>
+<span id="cb7-8">            i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb7-9">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb7-10">         </span>
+<span id="cb7-11">        j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb7-12">        </span>
+<span id="cb7-13">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb7-14">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span></span>
+<span id="cb7-15"> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb7-16"></span>
+<span id="cb7-17"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<p><em>Time: O(n) Space:O(1)</em></p>
+<p>A subsequence of a string is a sequence of characters that can be obtained by deleting some (or none) of the characters from the original string, while maintaining the relative order of the remaining characters. For example, “ace” is a subsequence of “abcde” while “aec” is not.</p>
+<section id="two-pointers-examples" class="level2">
+<h2 class="anchored" data-anchor-id="two-pointers-examples">Two Pointers Examples</h2>
+<blockquote class="blockquote">
+<p>Reverse String Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" aria-controls="tabset-6-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" aria-controls="tabset-6-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" aria-labelledby="tabset-6-1-tab">
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb8-1"> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">void</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reverseString</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">char</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb8-2">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> </span>
+<span id="cb8-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> </span>
+<span id="cb8-4">        </span>
+<span id="cb8-5">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb8-6">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">char</span> tmp <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb8-7">            s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++]=</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb8-8">            s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--]=</span>tmp<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb8-9">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb8-10">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb8-11">        </span>
+<span id="cb8-12">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span>   </span></code></pre></div>
+</div>
+<div id="tabset-6-2" class="tab-pane" aria-labelledby="tabset-6-2-tab">
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"></span>
+<span id="cb9-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">class</span> Solution(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">object</span>):</span>
+<span id="cb9-3">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> reverseString(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, s):</span>
+<span id="cb9-4">    s.reverse()</span></code></pre></div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Squares of a Sorted Array</strong> Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" aria-controls="tabset-7-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" aria-controls="tabset-7-2" aria-selected="false">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-7-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-3" aria-controls="tabset-7-3" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" aria-labelledby="tabset-7-1-tab">
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb10-1">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sortedSquares</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb10-2">        </span>
+<span id="cb10-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb10-4">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb10-5"></span>
+<span id="cb10-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb10-7">        </span>
+<span id="cb10-8">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> tmp <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]*</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb10-9">            nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> tmp<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb10-10">            left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb10-11">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb10-12">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Arrays</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb10-13"></span>
+<span id="cb10-14">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb10-15">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-7-2" class="tab-pane" aria-labelledby="tabset-7-2-tab">
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//After my first submission I realized this could be cleaner</span></span>
+<span id="cb11-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sortedSquares</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb11-3">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb11-4">            nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb11-5">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb11-6">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Arrays</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb11-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb11-8">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-7-3" class="tab-pane" aria-labelledby="tabset-7-3-tab">
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> sortedSquares(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, nums: List[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>]) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> List[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>]:</span>
+<span id="cb12-2">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(nums)):</span>
+<span id="cb12-3">      nums[i] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums[i] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>nums[i]</span>
+<span id="cb12-4">  nums <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sorted</span>(nums)</span>
+<span id="cb12-5">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> nums</span></code></pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sliding-window" class="level1">
+<h1>Sliding Window</h1>
+<p><em>Similar to two pointers they’re iterables with ordered elements.</em></p>
+<section id="subarrays" class="level2">
+<h2 class="anchored" data-anchor-id="subarrays">Subarrays</h2>
+<p>Continuous section of the array. All the elements must be <strong>adjacent to each other and in their original order</strong></p>
+<p>Example: [1,2,3,4]</p>
+<ul>
+<li>[1],[2],[3],[4]</li>
+<li>[1,2],[2,3],[3,4]</li>
+<li>[1,2,3], [2,3,4]</li>
+</ul>
+<p>Identifying when to use this:</p>
+<p>The problem will: 1. Explicitly or implicitly define criteria that makes a subarray “valid”. 2. Ask you to find valid subarrays in some way - find the “best” valid subarray - finding the number of valid subarrays</p>
+</section>
+<section id="psudocode-1" class="level2">
+<h2 class="anchored" data-anchor-id="psudocode-1">Psudocode</h2>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb13-1">function <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fn</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">):</span></span>
+<span id="cb13-2">    left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb13-3">    curr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb13-4">    answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb13-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++):</span></span>
+<span id="cb13-6">        curr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb13-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>curr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">):</span></span>
+<span id="cb13-8">            curr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb13-9">            left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++</span></span>
+<span id="cb13-10"></span>
+<span id="cb13-11">        answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">max</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb13-12"></span>
+<span id="cb13-13">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> answer</span></code></pre></div>
+<blockquote class="blockquote">
+<p>Example 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. This is the problem we have been talking about above. We will now formally solve it.</p>
+</blockquote>
+</section>
+<section id="java-7" class="level2">
+<h2 class="anchored" data-anchor-id="java-7">Java</h2>
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb14-1">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subarray</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb14-2">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb14-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb14-4">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb14-5"></span>
+<span id="cb14-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb14-7">            sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb14-8">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb14-9">                sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb14-10">                left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb14-11">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb14-12">            answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Math</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">max</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb14-13"></span>
+<span id="cb14-14">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<blockquote class="blockquote">
+<p>Example 2: You are given a binary string s (a string containing only “0” and “1”). You may choose up to one “0” and flip it to a “1”. What is the length of the longest substring achievable that contains only “1”? For example, given s = “1101100111”, the answer is 5. If you perform the flip at index 2, the string becomes 1111100111.</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" aria-controls="tabset-8-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" aria-controls="tabset-8-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" aria-labelledby="tabset-8-1-tab">
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb15-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">binarySubarray</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb15-2">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb15-3">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb15-4">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb15-5"></span>
+<span id="cb15-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb15-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)==</span> <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'0'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb15-8">            counter<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb15-9"></span>
+<span id="cb15-10">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb15-11"></span>
+<span id="cb15-12">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb15-13">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'0'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb15-14">                counter<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--;</span></span>
+<span id="cb15-15">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb15-16"></span>
+<span id="cb15-17">            left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++;</span></span>
+<span id="cb15-18">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb15-19"></span>
+<span id="cb15-20">        answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Math</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">max</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb15-21">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb15-22"></span>
+<span id="cb15-23">        </span>
+<span id="cb15-24">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb15-25"></span>
+<span id="cb15-26">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-8-2" class="tab-pane" aria-labelledby="tabset-8-2-tab">
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> binarySubarray(s):</span>
+<span id="cb16-2"></span>
+<span id="cb16-3">    left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>counter<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb16-4"></span>
+<span id="cb16-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(s)):</span>
+<span id="cb16-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> s[i] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span>:</span>
+<span id="cb16-7">            counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb16-8">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span> counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>:</span>
+<span id="cb16-9">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(s[left] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span>):</span>
+<span id="cb16-10">                counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb16-11">            left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb16-12"></span>
+<span id="cb16-13">        ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>(answer, i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb16-14"></span>
+<span id="cb16-15">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span>(ans)</span></code></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="number-of-subarrays" class="level2">
+<h2 class="anchored" data-anchor-id="number-of-subarrays">Number of Subarrays</h2>
+<blockquote class="blockquote">
+<p><strong>Example 3: 713. Subarray Product Less Than K.</strong> Given an array of positive integers nums and an integer k, return the number of subarrays where the product of all the elements in the subarray is strictly less than k. For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The subarrays with products less than k are:[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]</p>
+</blockquote>
+<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb17-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">productLessThan</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb17-2">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb17-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb17-4">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb17-5"></span>
+<span id="cb17-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>k <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb17-7">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb17-8">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb17-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb17-10">            counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb17-11">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>counter<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span>k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb17-12">                counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//opposite of multiplication remove that element </span></span>
+<span id="cb17-13">                left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb17-14">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb17-15">            answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb17-16">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb17-17">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb17-18"></span>
+<span id="cb17-19">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</section>
+<section id="fixed-window-size" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-window-size">Fixed window size</h2>
+</section>
+<section id="psudocode-2" class="level2">
+<h2 class="anchored" data-anchor-id="psudocode-2">Psudocode</h2>
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb18-1">function <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fn</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>arr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">):</span></span>
+<span id="cb18-2">    curr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> some data to track the window</span>
+<span id="cb18-3"></span>
+<span id="cb18-4">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// build the first window</span></span>
+<span id="cb18-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++)</span></span>
+<span id="cb18-6">        Do something with curr or other variables to build first window</span>
+<span id="cb18-7"></span>
+<span id="cb18-8">    ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> answer variable<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> probably equal to curr here depending on the problem</span>
+<span id="cb18-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> arr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++)</span></span>
+<span id="cb18-10">        Add arr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> to window</span>
+<span id="cb18-11">        Remove arr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> from window</span>
+<span id="cb18-12">        Update ans</span>
+<span id="cb18-13"></span>
+<span id="cb18-14">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> ans</span></code></pre></div>
+</section>
+<section id="leetcode-problem" class="level2">
+<h2 class="anchored" data-anchor-id="leetcode-problem">Leetcode Problem</h2>
+<blockquote class="blockquote">
+<p><strong>Example 4</strong>: Given an integer array nums and an integer k, find the sum of the subarray with the largest sum whose length is k.</p>
+</blockquote>
+<div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb19-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">productLessThan</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb19-2">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb19-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb19-4">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb19-5"></span>
+<span id="cb19-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>k <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb19-7">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb19-8">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb19-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb19-10">            counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb19-11">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>counter<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span>k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb19-12">                counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//opposite of multiplication remove that element </span></span>
+<span id="cb19-13">                left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb19-14">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb19-15">            answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb19-16">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb19-17">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb19-18"></span>
+<span id="cb19-19">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p><strong>1004. Max Consecutive Ones III</strong>: Given a binary array nums and an integer k, return the maximum number of consecutive 1’s in the array if you can flip at most k 0’s.</p>
+<p>Example 1: Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2 Output: 6 Explanation: [1,1,1,0,0,<strong>1</strong>,1,1,1,1,<strong>1</strong>] Bolded numbers were flipped from 0 to 1. The longest subarray is underlined..</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" aria-controls="tabset-9-1" aria-selected="true">Java</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" aria-labelledby="tabset-9-1-tab">
+<div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb20-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">productLessThan</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb20-2">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb20-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb20-4">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb20-5"></span>
+<span id="cb20-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>k <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb20-7">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb20-8">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb20-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb20-10">            counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>right<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb20-11">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">while</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>counter<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span>k<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span></span>
+<span id="cb20-12">                counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//opposite of multiplication remove that element </span></span>
+<span id="cb20-13">                left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb20-14">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb20-15">            answer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> right <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb20-16">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb20-17">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> answer<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb20-18"></span>
+<span id="cb20-19">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p>Time complexity:O(n) Space complexity:O(1) <em>3ms Runtime Beats 79.28% of users with Java</em></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="prefix-sum" class="level1">
+<h1>Prefix Sum</h1>
+<p>Prefix sum is a technique that can be used on arrays (of numbers). The idea is to create an array prefix where prefix[i] is the sum of all elements up to the index i (inclusive). For example, given nums = [5, 2, 1, 6, 3, 8], we would have prefix = [5, 7, 8, 14, 17, 25].</p>
+<p>If we want the sum of the subarray from i to j (inclusive), then the answer is prefix[j] - prefix[i - 1], or prefix[j] - prefix[i] + nums[i] if you don’t want to deal with the out of bounds case when i = 0.</p>
+<div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb21-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">boolean</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">answerQueries</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[][]</span> queries<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> limit<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb21-2">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> prefix <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb21-3">    prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb21-4"></span>
+<span id="cb21-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb21-6">        prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb21-7">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb21-8"></span>
+<span id="cb21-9">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">boolean</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">boolean</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>queries<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb21-10">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> queries<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb21-11">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> queries<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">][</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">],</span> y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> queries<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">][</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb21-12">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> curr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb21-13">        ans<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> curr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> limit<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb21-14">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb21-15">    </span>
+<span id="cb21-16">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> ans<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb21-17"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<section id="leetcode-problem-1" class="level2">
+<h2 class="anchored" data-anchor-id="leetcode-problem-1">Leetcode Problem</h2>
+<p>Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]). <strong>Return the running sum of nums</strong></p>
+<p>Example 1: Input: nums = [1,2,3,4] Output: [1,3,6,10] Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" aria-controls="tabset-10-1" aria-selected="true">Java</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" aria-labelledby="tabset-10-1-tab">
+<div class="sourceCode" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb22-1">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">private</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runningSum</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb22-2">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> prefix <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb22-3">        prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]=</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb22-4">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb22-5">            prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]+</span>prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb22-6">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb22-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> prefix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb22-8"></span>
+<span id="cb22-9">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p>Time complexity:O(n) Space complexity:O(n) <strong>It creates an additional array prefix of the same length as the input array nums. The size of the prefix array is proportional to the size of the input array, making the space complexity linear.</strong></p>
+<p><em>Runtime 0ms Beats100.00% of users with Java</em></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="more-common-patters" class="level1">
+<h1>More Common Patters</h1>
+<section id="on-string-building" class="level2">
+<h2 class="anchored" data-anchor-id="on-string-building">O(n) String Building</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" aria-controls="tabset-11-1" aria-selected="true">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" aria-controls="tabset-11-2" aria-selected="false">Java</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" aria-labelledby="tabset-11-1-tab">
+<div class="sourceCode" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> build_string(s):</span>
+<span id="cb23-2">  arr<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[] <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#declar a list</span></span>
+<span id="cb23-3">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> c <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> s</span>
+<span id="cb23-4">      arr.append(c) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#add the characters to the list </span></span>
+<span id="cb23-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>.join(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># convert the list to a string </span></span></code></pre></div>
+<p><em>O(n)</em></p>
+</div>
+<div id="tabset-11-2" class="tab-pane" aria-labelledby="tabset-11-2-tab">
+<div class="sourceCode" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb24-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> string <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">buildString</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb24-2">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">StringBuilder</span> sb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">StringBuilder</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//use string builder</span></span>
+<span id="cb24-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb24-4">        sb<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">append</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// add character to the list</span></span>
+<span id="cb24-5">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb24-6">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">StringBuilder</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toString</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// convert list to string</span></span>
+<span id="cb24-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> sb<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toString</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span></span>
+<span id="cb24-8"></span>
+<span id="cb24-9">    </span></code></pre></div>
+<p><em>O(n)</em></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="extra-leetcode-problems" class="level1">
+<h1>Extra Leetcode Problems</h1>
+<ol start="557" type="1">
+<li>Reverse Words in a String III Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.</li>
+</ol>
+<blockquote class="blockquote">
+<p>Example 1: Input: s = “Let’s take LeetCode contest” Output: “s’teL ekat edoCteeL tsetnoc” Example 2:</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Input: s = “Mr Ding” Output: “rM gniD”</p>
+</blockquote>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" aria-controls="tabset-12-1" aria-selected="true">Java</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" aria-labelledby="tabset-12-1-tab">
+<div class="sourceCode" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb25-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">private</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reverseWords</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb25-2"></span>
+<span id="cb25-3">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">StringBuilder</span> sb <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">StringBuilder</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span></span>
+<span id="cb25-4">        </span>
+<span id="cb25-5">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb25-6"></span>
+<span id="cb25-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb25-8">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb25-9">                <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Reverse the word and append to StringBuilder</span></span>
+<span id="cb25-10">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb25-11">                    sb<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">append</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span></span>
+<span id="cb25-12">                <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb25-13">                <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Append the space</span></span>
+<span id="cb25-14">                sb<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">append</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb25-15">                <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Update the left pointer to the next character</span></span>
+<span id="cb25-16">                left <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb25-17">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb25-18">                <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Reverse the last word and append to StringBuilder</span></span>
+<span id="cb25-19">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> j <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> left<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb25-20">                    sb<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">append</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>j<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span></span>
+<span id="cb25-21">                <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb25-22">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb25-23">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb25-24">    </span>
+<span id="cb25-25">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> sb<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toString</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span></span>
+<span id="cb25-26"></span>
+<span id="cb25-27">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p><em>Runtime 9ms Beats 44.51% of users with Java</em></p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>Java</category>
+  <category>Python</category>
+  <category>Data Structures</category>
+  <category>Algorithms</category>
+  <category>Arrays</category>
+  <category>Strings</category>
+  <guid>https://ValColorado.github.io/valcolorado.github.io/code/array-strings/array-string.html</guid>
+  <pubDate>Sun, 28 Jan 2024 05:00:00 GMT</pubDate>
+  <media:content url="https://miro.medium.com/v2/resize:fit:1200/1*YWjJuLuXJULb-2IyYhqnXQ.gif" medium="image" type="image/gif"/>
+</item>
+<item>
+  <title>Hashing</title>
+  <dc:creator>Valentina Colorado</dc:creator>
+  <link>https://ValColorado.github.io/valcolorado.github.io/code/hashing /hashing.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><em>A hash map is an unordered data structure that stores key-value pairs</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 36%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Benefits</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chaining: Technique used for avoiding <strong><em>collisions</em></strong></td>
+<td><ul>
+<li><p>Insertion O(1)</p></li>
+<li><p>Can grow infinitely as long as there is enough space</p></li>
+<li><p>Never needs to be resized</p></li>
+</ul></td>
+<td><ul>
+<li><p>Keys are not evenly distributed</p></li>
+<li><p>Separate chaining can lead to empty spaces in table</p></li>
+<li><p>List in the positions can be very long</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Sets: Uses same mechanism for hashing keys into integers</td>
+<td><ul>
+<li><p>Sets do not map their keys to anything</p></li>
+<li><p>Add remove elements in O(1)</p></li>
+<li><p>Set are dynamic, so there is no error of overflowing of the set.</p></li>
+<li><p>Sets can be used to improve performance in many algorithms by providing fast lookups.</p></li>
+</ul></td>
+<td><ul>
+<li><p>Don’t track frequency</p></li>
+<li><p>Elements in a set can only be accessed with pointers, there is no indexing in set like arrays</p></li>
+<li><p>O(logN) time complexity for <strong>basic operations</strong> like insertion and deletion.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<section id="basic-examples" class="level1">
+<h1>Basic Examples</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb1-1"></span>
+<span id="cb1-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">class</span> Example <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb1-3">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">void</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">main</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> args<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>        </span>
+<span id="cb1-4">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Map</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> myHashMap <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">HashMap</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;();</span></span>
+<span id="cb1-5">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// myHashMap has integers for both keys and values</span></span>
+<span id="cb1-6">        </span>
+<span id="cb1-7">        myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">put</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">83</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb1-8">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Prints 83</span></span>
+<span id="cb1-9">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">containsKey</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Prints true</span></span>
+<span id="cb1-10">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">containsKey</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">854</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// Prints false</span></span>
+<span id="cb1-11">        </span>
+<span id="cb1-12">        myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">put</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">327</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb1-13">        myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">put</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">82523</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb1-14">        </span>
+<span id="cb1-15">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> key<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">keySet</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">())</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb1-16">            <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%d</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%d</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> key<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> myHashMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>key<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)));</span></span>
+<span id="cb1-17">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb1-18">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb1-19"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">    hash_map <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {}</span>
+<span id="cb2-2">    hash_map[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">83</span> </span>
+<span id="cb2-3">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(hash_map[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>])<span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># prints 83 </span></span>
+<span id="cb2-4"></span>
+<span id="cb2-5">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">854</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> hash_map) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#print False</span></span>
+<span id="cb2-6">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> hash_map) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#print True</span></span>
+<span id="cb2-7"></span>
+<span id="cb2-8">    hash_map[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">327</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># new key, value</span></span>
+<span id="cb2-9"></span>
+<span id="cb2-10">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> key,val <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> hash_map.items(): <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#iterate and print out all key, values</span></span>
+<span id="cb2-11">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>key<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>val<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<section id="checking-for-existence" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-existence">Checking for Existence</h2>
+<p><em>Example 1: 1. Two Sum Given an array of integers nums and an integer target, return indices of two numbers such that they add up to target.</em> You cannot use the same index twice.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb3-1"></span>
+<span id="cb3-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">private</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">targetSumHash</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> target<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-3"></span>
+<span id="cb3-4">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Map</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> hasMap <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">HashMap</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;();</span></span>
+<span id="cb3-5"></span>
+<span id="cb3-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb3-7">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> num <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb3-8">            <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> complement <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> target <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-9">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>hasMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">containsKey</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>complement<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)){</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// This operation is O(1)!</span></span>
+<span id="cb3-10">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">System</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">out</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">println</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>hasMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>complement<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span></span>
+<span id="cb3-11">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> hasMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>complement<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)};</span></span>
+<span id="cb3-12">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb3-13">            hasMap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">put</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb3-14">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb3-15">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">};</span></span>
+<span id="cb3-16">    </span>
+<span id="cb3-17">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> twoSum(nums: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>], target: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>]:</span>
+<span id="cb4-2">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">hash</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {}</span>
+<span id="cb4-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(nums)):</span>
+<span id="cb4-4">        num <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nums[i]</span>
+<span id="cb4-5">        complement <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> target <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> num</span>
+<span id="cb4-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> complement <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">hash</span>: <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This operation is O(1)!</span></span>
+<span id="cb4-7">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> [i,<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">hash</span>[complement]]</span>
+<span id="cb4-8">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">hash</span>[num]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>i</span>
+<span id="cb4-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> [<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span></code></pre></div>
+<p><em>Time: O(n) Space O(n)</em></p>
+</div>
+</div>
+</div>
+<p><em>Example 2: 2351. First Letter to Appear Twice</em> Given a string s, return the first character to appear twice. It is guaranteed that the input will have a duplicate character.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" aria-controls="tabset-3-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" aria-controls="tabset-3-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb5-1"></span>
+<span id="cb5-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">private</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">char</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">repeatedCharacter</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb5-3">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Character</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> seen <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">HashSet</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;();</span></span>
+<span id="cb5-4">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span></span>
+<span id="cb5-5">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">char</span> c <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb5-6">      <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>seen<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contains</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>c<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)){</span></span>
+<span id="cb5-7">          <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> c<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb5-8">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb5-9">      seen<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>c<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb5-10">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb5-11">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb5-12">        </span>
+<span id="cb5-13">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" aria-labelledby="tabset-3-2-tab">
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> repeatedChar(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, s: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>:</span>
+<span id="cb6-2">    seen <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span>()</span>
+<span id="cb6-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> s:</span>
+<span id="cb6-4">        c <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s[i]</span>
+<span id="cb6-5">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> c <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> s:</span>
+<span id="cb6-6">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> c</span>
+<span id="cb6-7">        seen.add(c)</span>
+<span id="cb6-8">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span></span></code></pre></div>
+<p><em>Time: O(n) Space O(1)-&gt;26 letters in the alphabet or O(m) m</em> number of allowable characters in the input</p>
+</div>
+</div>
+</div>
+<p>Example 3: Given an integer array nums, find all the unique numbers x in nums that satisfy the following: x + 1 is not in nums, and x - 1 is not in nums.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>Java</category>
+  <category>Python</category>
+  <category>Data Structures</category>
+  <category>Algorithms</category>
+  <category>Hashing</category>
+  <guid>https://ValColorado.github.io/valcolorado.github.io/code/hashing /hashing.html</guid>
+  <pubDate>Wed, 03 Jan 2024 05:00:00 GMT</pubDate>
+  <media:content url="https://miro.medium.com/v2/resize:fit:1400/1*8hAoOurJFBfA-w1wKUAqIA.gif" medium="image" type="image/gif"/>
+</item>
+</channel>
+</rss>
