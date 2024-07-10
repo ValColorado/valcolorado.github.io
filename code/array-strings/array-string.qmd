@@ -2,7 +2,7 @@
 title: "Arrays and Strings"
 author: "Valentina Colorado"
 date: "2024-01-28"
-date-modified: "2024-07-08"
+date-modified: "2024-07-09"
 categories: [Java, Python,Data Structures, Algorithms, Arrays, Strings]
 image: https://miro.medium.com/v2/resize:fit:1200/1*YWjJuLuXJULb-2IyYhqnXQ.gif
 description: "Going over basic arrays and strings content and leetcode problems"
