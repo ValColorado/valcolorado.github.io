@@ -3961,8 +3961,402 @@ font-style: inherit;">" "</span></span></code></pre></div>
 </div>
 </div>
 <p>Example 3: Given an integer array nums, find all the unique numbers x in nums that satisfy the following: x + 1 is not in nums, and x - 1 is not in nums.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" aria-controls="tabset-4-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" aria-controls="tabset-4-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb7-1"></span>
+<span id="cb7-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">public</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">List</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">findNumbers</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[]</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb7-3">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">List</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">ArrayList</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;();</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//resizable array</span></span>
+<span id="cb7-4">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Integer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> numSet <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">HashSet</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;();</span></span>
+<span id="cb7-5"></span>
+<span id="cb7-6">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// add all the elements to the set </span></span>
+<span id="cb7-7">            numSet<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb7-8">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb7-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//check constraint and add to answer array</span></span>
+<span id="cb7-10"></span>
+<span id="cb7-11">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(!</span>numSet<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contains</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;&amp;</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>numSet<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contains</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)){</span> </span>
+<span id="cb7-12">                ans<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span> </span>
+<span id="cb7-13">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb7-14">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb7-15">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> ans<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb7-16"></span>
+<span id="cb7-17"></span>
+<span id="cb7-18">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-4-2" class="tab-pane" aria-labelledby="tabset-4-2-tab">
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> findNum(nums:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>])<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>]:</span>
+<span id="cb8-2">    ans <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[]</span>
+<span id="cb8-3">    nums<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span>(nums)</span>
+<span id="cb8-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> num <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> nums:</span>
+<span id="cb8-5">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(num<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> nums)<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">and</span> (num <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> nums):</span>
+<span id="cb8-6">            ans.append(num)</span>
+<span id="cb8-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> ans</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Time: O(n) Space: O(n)</p>
+</section>
+<section id="leetcode-problem" class="level2">
+<h2 class="anchored" data-anchor-id="leetcode-problem">Leetcode Problem</h2>
+<section id="check-if-the-sentence-is-pangram" class="level3">
+<h3 class="anchored" data-anchor-id="check-if-the-sentence-is-pangram">Check if the Sentence Is Pangram</h3>
+<p>A pangram is a sentence where every letter of the English alphabet appears at least once.</p>
+<p>Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" aria-controls="tabset-5-1" aria-selected="true">Java</a></li><li class="nav-item"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" aria-controls="tabset-5-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" aria-labelledby="tabset-5-1-tab">
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode java code-with-copy"><code class="sourceCode java"><span id="cb9-1">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">private</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">static</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">boolean</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">isPanagram</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">String</span> s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb9-2">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Character</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> string <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">HashSet</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&gt;();</span></span>
+<span id="cb9-3"></span>
+<span id="cb9-4">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++){</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// iteate through the string</span></span>
+<span id="cb9-5">            string<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>s<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">charAt</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>i<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">));</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//sets can't hold duplicate values</span></span>
+<span id="cb9-6">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>string<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">size</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">){</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// alphabet has 26 letters therefore, if string size = 26 it must be a panagram</span></span>
+<span id="cb9-7">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb9-8">            <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb9-9"></span>
+<span id="cb9-10">        <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb9-11">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">false</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb9-12"></span>
+<span id="cb9-13">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<div id="tabset-5-2" class="tab-pane" aria-labelledby="tabset-5-2-tab">
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> isPanagram(s:<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>:</span>
+<span id="cb10-2">    s <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span>(s)</span>
+<span id="cb10-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(s) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26</span>):</span>
+<span id="cb10-4">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb10-5"></span>
+<span id="cb10-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span></code></pre></div>
+<p><em>To improve this code i could have not used the if statement and just returned len(s)==26</em></p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 

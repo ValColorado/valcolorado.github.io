@@ -2,6 +2,7 @@
 title: "Arrays and Strings"
 author: "Valentina Colorado"
 date: "2024-01-28"
+date-modified: "2024-07-08"
 categories: [Java, Python,Data Structures, Algorithms, Arrays, Strings]
 image: https://miro.medium.com/v2/resize:fit:1200/1*YWjJuLuXJULb-2IyYhqnXQ.gif
 description: "Going over basic arrays and strings content and leetcode problems"
@@ -10,62 +11,58 @@ format:
     toc: true
     html-math-method: katex
     css: styles.css
+editor: 
+  markdown: 
+    wrap: 72
 ---
-
 
 # Arrays and Strings
 
+*Both represent ordered group of elements*
 
-_Both represent ordered group of elements_ 
+| Language | Array and String |
+|----------|------------------|
+| Python   | Immutable        |
+| Java     | Immutable.       |
+| C++      | Mutable          |
 
-| Language         | Array and String                               |
-|------------------|------------------------------------------------|
-| Python           | Immutable                                      |
-| Java             | Immutable.                                     |
-| C++              | Mutable                                        |
+Different ways to solve arrays and string problems:
 
-
-
+-   [Two Pointers]
+-   [Sliding Window]
+-   [Prefix Sum]
+-   String builder
+-   Subarrays/substrings, subsequences, and subsets
 
 # Two Pointers
-Working from the front and back. 
-1. Start one pointer at first index 0. and the other pointer at last index input.length-1
-2. while loop until the pointers == each other 
 
+Working from the front and back. 1. Start one pointer at first index 0.
+and the other pointer at last index input.length-1 2. while loop until
+the pointers == each other
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Psudocode
 
-``` {.python}
+``` 
 def function fn(arr):
   left =0
   right = arr.length-1
   
   while left < right:
-    So some logic here depending on the problem 
+    if left matches the right right
     1. left++
     2. right--
-    3. both left++ and right-- 
-  
-  
+  else 
+    false
 ```
 :::
 
-
 > Use two pointers to check if a string is palindrome
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Java
-```{.java}
-public class Palindrome {
-    public static void main(String[] args) {
-        String s1 = "racecar";
 
-        System.out.println(checkIfPalindrome(s1));
-    }
-        
+``` java
     public static boolean checkIfPalindrome(String s1){
         int left =0;
         int right = s1.length()-1;
@@ -81,18 +78,12 @@ public class Palindrome {
             }
         }
         return true;
-
     }
-}
-
 ```
 
 ## Python
-```{.python}
-def main():
-      s = "racecar"
-      print(checkIfPalindrome(s))
 
+``` python
 def checkIfPalindrome(s: str) -> bool:
 
     left =0
@@ -100,7 +91,7 @@ def checkIfPalindrome(s: str) -> bool:
 
     while left<right:
         
-        if(s[left] == s[right]):
+        if s[left] == s[right]:
             left += left
             right -= right
                 
@@ -109,22 +100,60 @@ def checkIfPalindrome(s: str) -> bool:
                 
             
     return True;
+```
+:::
 
 
+>Write a function that reverses a string. The input string is given as an array of characters s.
+
+
+::: panel-tabset
+## Java
+
+``` java
+
+    private static char[] reverseString(char[] input) {
+        //solve using two pointer method
+        int left =0;
+        int right = input.length-1;
+        char tmp;
+
+         while(left < right){
+             tmp = input[left];
+             input[left]=input[right];
+             input[right]=tmp;
+
+             left++;
+             right--;
+         }
+         return input;
+
+
+    }
 ```
 
-::: 
+## Python
 
-_Time: O(n) Space:O(1)_
+``` python
+      s.reverse()
+```
+:::
 
-> Example 2: Given a sorted array of unique integers and a target integer, return true if there exists a pair of numbers that sum to target, false otherwise. This problem is similar to Two Sum. (In Two Sum, the input is not sorted).
- For example, given nums = [1, 2, 4, 6, 8, 9, 14, 15] and target = 13, return true because 4 + 9 = 13.
- 
 
-::: {.panel-tabset}
 
+
+*Time: O(n) Space:O(1)*
+
+> Example 2: Given a sorted array of unique integers and a target
+> integer, return true if there exists a pair of numbers that sum to
+> target, false otherwise. This problem is similar to Two Sum. (In Two
+> Sum, the input is not sorted). For example, given nums = \[1, 2, 4, 6,
+> 8, 9, 14, 15\] and target = 13, return true because 4 + 9 = 13.
+
+::: panel-tabset
 ## Java
-```{.java}
+
+``` java
     public static boolean targetSum(int[] nums,int target){
 
         int left =0;
@@ -151,7 +180,8 @@ _Time: O(n) Space:O(1)_
 ```
 
 ## Python
-```{.python}
+
+``` python
 def targetSum(nums:list[int], target:int ) -> bool:
 
     left =0
@@ -168,16 +198,17 @@ def targetSum(nums:list[int], target:int ) -> bool:
              left += 1
     return False
 ```
-::: 
+:::
 
-_Time: O(n) Space:O(1)_
+*Time: O(n) Space:O(1)*
 
-> Example 3: Given two sorted integer arrays arr1 and arr2, return a new array that combines both of them and is also sorted.
+> Example 3: Given two sorted integer arrays arr1 and arr2, return a new
+> array that combines both of them and is also sorted.
 
-
-::: {.panel-tabset}
+::: panel-tabset
 ## Java
-```{.java}
+
+``` java
 public static List<Integer> combinedSorted(int[] arr1, int[]arr2){
 
         
@@ -210,20 +241,18 @@ public static List<Integer> combinedSorted(int[] arr1, int[]arr2){
         return arr3;
     }
 }
-
-
 ```
-
 :::
 
-_Time: O(n) Space:O(1)_
+*Time: O(n) Space:O(1)*
 
->Example 4: 392. Is Subsequence.
-Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+> Example 4: 392. Is Subsequence. Given two strings s and t, return true
+> if s is a subsequence of t, or false otherwise.
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Java
-```{.java}
+
+``` java
 
  public static boolean checkIfSubsequence(String s, String t){
     int i =0;
@@ -242,25 +271,26 @@ Given two strings s and t, return true if s is a subsequence of t, or false othe
 
 }
 ```
-
 :::
 
-_Time: O(n) Space:O(1)_
+*Time: O(n) Space:O(1)*
 
-A subsequence of a string is a sequence of characters that can be obtained by deleting some (or none) of the characters from the original string, while maintaining the relative order of the remaining characters. For example, "ace" is a subsequence of "abcde" while "aec" is not.
-
+A subsequence of a string is a sequence of characters that can be
+obtained by deleting some (or none) of the characters from the original
+string, while maintaining the relative order of the remaining
+characters. For example, "ace" is a subsequence of "abcde" while "aec"
+is not.
 
 ## Two Pointers Examples
 
->Reverse String Write a function that reverses a string. The input string is given as an array of characters s.
-You must do this by modifying the input array in-place with O(1) extra memory
+> Reverse String Write a function that reverses a string. The input
+> string is given as an array of characters s. You must do this by
+> modifying the input array in-place with O(1) extra memory
 
-
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Java
 
-```{.java}
+``` java
  public static void reverseString(char[] s) {
         int i = s.length-1; 
         int j= 0; 
@@ -276,24 +306,23 @@ You must do this by modifying the input array in-place with O(1) extra memory
 ```
 
 ## Python
-```{.python}
+
+``` python
 
 class Solution(object):
     def reverseString(self, s):
     s.reverse()
 ```
-
 :::
 
->**Squares of a Sorted Array**
-Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+> **Squares of a Sorted Array** Given an integer array nums sorted in
+> non-decreasing order, return an array of the squares of each number
+> sorted in non-decreasing order.
 
-
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Java
 
-```{.java}
+``` java
     public int[] sortedSquares(int[] nums) {
         
         int left = 0;
@@ -312,7 +341,8 @@ Given an integer array nums sorted in non-decreasing order, return an array of t
 ```
 
 ## Java
-```{.java}
+
+``` java
 //After my first submission I realized this could be cleaner
     public int[] sortedSquares(int[] nums) {
         for(int i=0; i< nums.length;i++){
@@ -322,41 +352,42 @@ Given an integer array nums sorted in non-decreasing order, return an array of t
         return nums;
     }
 ```
+
 ## Python
-```{.python}
+
+``` python
 def sortedSquares(self, nums: List[int]) -> List[int]:
   for i in range(len(nums)):
       nums[i] = nums[i] *nums[i]
   nums = sorted(nums)
   return nums
 ```
-
 :::
 
-# Sliding Window 
-_Similar to two pointers they're iterables with ordered elements._
+# Sliding Window
+
+*Similar to two pointers they're iterables with ordered elements.*
 
 ## Subarrays
 
-Continuous section of the array. All the elements must be **adjacent to each other and in their original order**
+Continuous section of the array. All the elements must be **adjacent to
+each other and in their original order**
 
-Example: [1,2,3,4]
+Example: \[1,2,3,4\]
 
-- [1],[2],[3],[4]
-- [1,2],[2,3],[3,4]
-- [1,2,3], [2,3,4]
-
+-   \[1\],\[2\],\[3\],\[4\]
+-   \[1,2\],\[2,3\],\[3,4\]
+-   \[1,2,3\], \[2,3,4\]
 
 Identifying when to use this:
 
-The problem will:
-  1. Explicitly or implicitly define criteria that makes a subarray "valid". 
-  2. Ask you to find valid subarrays in some way 
-    - find the "best" valid subarray 
-    - finding the number of valid subarrays 
-    
+The problem will: 1. Explicitly or implicitly define criteria that makes
+a subarray "valid". 2. Ask you to find valid subarrays in some way -
+find the "best" valid subarray - finding the number of valid subarrays
+
 ## Psudocode
-```{.java}
+
+``` java
 function fn(nums, k):
     left = 0
     curr = 0
@@ -372,11 +403,14 @@ function fn(nums, k):
     return answer
 ```
 
->Example 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. This is the problem we have been talking about above. We will now formally solve it.
-
+> Example 1: Given an array of positive integers nums and an integer k,
+> find the length of the longest subarray whose sum is less than or
+> equal to k. This is the problem we have been talking about above. We
+> will now formally solve it.
 
 ## Java
-```{.java}
+
+``` java
     public static int subarray(int[] nums, int k) {
         int left =0;
         int sum = 0;
@@ -393,14 +427,16 @@ function fn(nums, k):
         }
 ```
 
->Example 2: You are given a binary string s (a string containing only "0" and "1"). You may choose up to one "0" and flip it to a "1". What is the length of the longest substring achievable that contains only "1"?
-For example, given s = "1101100111", the answer is 5. If you perform the flip at index 2, the string becomes 1111100111.
+> Example 2: You are given a binary string s (a string containing only
+> "0" and "1"). You may choose up to one "0" and flip it to a "1". What
+> is the length of the longest substring achievable that contains only
+> "1"? For example, given s = "1101100111", the answer is 5. If you
+> perform the flip at index 2, the string becomes 1111100111.
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Java
 
-```{.java}
+``` java
 public static int binarySubarray(String s) {
     int left =0;
     int counter = 0;
@@ -427,11 +463,11 @@ public static int binarySubarray(String s) {
         return answer;
 
     }
-
 ```
 
 ## Python
-```{.python}
+
+``` python
 def binarySubarray(s):
 
     left=counter=answer=0
@@ -448,15 +484,19 @@ def binarySubarray(s):
 
     return(ans)
 ```
-
 :::
 
 ## Number of Subarrays
->**Example 3: 713. Subarray Product Less Than K.**
-Given an array of positive integers nums and an integer k, return the number of subarrays where the product of all the elements in the subarray is strictly less than k.
-For example, given the input nums = [10, 5, 2, 6], k = 100, the answer is 8. The subarrays with products less than k are:[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
 
-```{.java}
+> **Example 3: 713. Subarray Product Less Than K.** Given an array of
+> positive integers nums and an integer k, return the number of
+> subarrays where the product of all the elements in the subarray is
+> strictly less than k. For example, given the input nums = \[10, 5, 2,
+> 6\], k = 100, the answer is 8. The subarrays with products less than k
+> are:\[10\], \[5\], \[2\], \[6\], \[10, 5\], \[5, 2\], \[2, 6\], \[5,
+> 2, 6\]
+
+``` java
 public static int productLessThan(int[] nums, int k) {
         int left =0;
         int counter = 1;
@@ -476,14 +516,13 @@ public static int productLessThan(int[] nums, int k) {
         return answer;
 
     }
-
 ```
-
 
 ## Fixed window size
 
 ## Psudocode
-```{.java}
+
+``` java
 function fn(arr, k):
     curr = some data to track the window
 
@@ -500,11 +539,12 @@ function fn(arr, k):
     return ans
 ```
 
-## Leetcode Problem 
+## Leetcode Problem
 
->**Example 4**: Given an integer array nums and an integer k, find the sum of the subarray with the largest sum whose length is k.
+> **Example 4**: Given an integer array nums and an integer k, find the
+> sum of the subarray with the largest sum whose length is k.
 
-```{.java}
+``` java
 public static int productLessThan(int[] nums, int k) {
         int left =0;
         int counter = 1;
@@ -524,23 +564,20 @@ public static int productLessThan(int[] nums, int k) {
         return answer;
 
     }
-
 ```
 
+**1004. Max Consecutive Ones III**: Given a binary array nums and an
+integer k, return the maximum number of consecutive 1's in the array if
+you can flip at most k 0's.
 
-**1004. Max Consecutive Ones III**: Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+Example 1: Input: nums = \[1,1,1,0,0,0,1,1,1,1,0\], k = 2 Output: 6
+Explanation: \[1,1,1,0,0,**1**,1,1,1,1,**1**\] Bolded numbers were
+flipped from 0 to 1. The longest subarray is underlined..
 
-Example 1:
-Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
-Output: 6
-Explanation: [1,1,1,0,0,**1**,1,1,1,1,**1**]
-Bolded numbers were flipped from 0 to 1. The longest subarray is underlined..
-
-
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Java
-```{.java}
+
+``` java
 public static int productLessThan(int[] nums, int k) {
         int left =0;
         int counter = 1;
@@ -560,20 +597,25 @@ public static int productLessThan(int[] nums, int k) {
         return answer;
 
     }
-
 ```
-Time complexity:O(n) Space complexity:O(1) _3ms Runtime Beats 79.28% of users with Java_
+
+Time complexity:O(n) Space complexity:O(1) *3ms Runtime Beats 79.28% of
+users with Java*
 :::
 
-
 # Prefix Sum
-Prefix sum is a technique that can be used on arrays (of numbers). The idea is to create an array prefix where prefix[i] is the sum of all elements up to the index i (inclusive). For example, given nums = [5, 2, 1, 6, 3, 8], we would have prefix = [5, 7, 8, 14, 17, 25].
 
+Prefix sum is a technique that can be used on arrays (of numbers). The
+idea is to create an array prefix where prefix\[i\] is the sum of all
+elements up to the index i (inclusive). For example, given nums = \[5,
+2, 1, 6, 3, 8\], we would have prefix = \[5, 7, 8, 14, 17, 25\].
 
- If we want the sum of the subarray from i to j (inclusive), then the answer is prefix[j] - prefix[i - 1], or prefix[j] - prefix[i] + nums[i] if you don't want to deal with the out of bounds case when i = 0.
- 
- 
-```{.java}
+If we want the sum of the subarray from i to j (inclusive), then the
+answer is prefix\[j\] - prefix\[i - 1\], or prefix\[j\] - prefix\[i\] +
+nums\[i\] if you don't want to deal with the out of bounds case when i =
+0.
+
+``` java
 public boolean[] answerQueries(int[] nums, int[][] queries, int limit) {
     int[] prefix = new int[nums.length];
     prefix[0] = nums[0];
@@ -593,18 +635,19 @@ public boolean[] answerQueries(int[] nums, int[][] queries, int limit) {
 }
 ```
 
-## Leetcode Problem 
-Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]). **Return the running sum of nums**
+## Leetcode Problem
 
-Example 1:
-Input: nums = [1,2,3,4]
-Output: [1,3,6,10]
-Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].
+Given an array nums. We define a running sum of an array as
+runningSum\[i\] = sum(nums\[0\]...nums\[i\]). **Return the running sum
+of nums**
 
-::: {.panel-tabset}
+Example 1: Input: nums = \[1,2,3,4\] Output: \[1,3,6,10\] Explanation:
+Running sum is obtained as follows: \[1, 1+2, 1+2+3, 1+2+3+4\].
 
+::: panel-tabset
 ## Java
-```{.java}
+
+``` java
     private static int[] runningSum(int[] nums) {
         int [] prefix = new int[nums.length];
         prefix[0]=nums[0];
@@ -614,32 +657,36 @@ Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].
         return prefix;
 
     }
-
 ```
-Time complexity:O(n) Space complexity:O(n) **It creates an additional array prefix of the same length as the input array nums. The size of the prefix array is proportional to the size of the input array, making the space complexity linear.**
 
-_Runtime 0ms Beats100.00% of users with Java_
-::: 
+Time complexity:O(n) Space complexity:O(n) **It creates an additional
+array prefix of the same length as the input array nums. The size of the
+prefix array is proportional to the size of the input array, making the
+space complexity linear.**
 
+*Runtime 0ms Beats100.00% of users with Java*
+:::
 
 # More Common Patters
 
 ## O(n) String Building
-::: {.panel-tabset}
 
+::: panel-tabset
 ## Python
-```{.python}
+
+``` python
 def build_string(s):
   arr=[] #declar a list
   for c in s
       arr.append(c) #add the characters to the list 
     return "".join(list) # convert the list to a string 
-
 ```
-_O(n)_
+
+*O(n)*
 
 ## Java
-```{.java}
+
+``` java
 public string buildString(String s) {
     StringBuilder sb = new StringBuilder(); //use string builder
     for (int i = 0; i < s.length(); i++) {
@@ -650,27 +697,25 @@ public string buildString(String s) {
 
     
 ```
-_O(n)_
-::: 
+
+*O(n)*
+:::
 
 # Extra Leetcode Problems
 
-557. Reverse Words in a String III
-Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+557. Reverse Words in a String III Given a string s, reverse the order
+     of characters in each word within a sentence while still preserving
+     whitespace and initial word order.
 
->Example 1:
-Input: s = "Let's take LeetCode contest"
-Output: "s'teL ekat edoCteeL tsetnoc"
-Example 2:
+> Example 1: Input: s = "Let's take LeetCode contest" Output: "s'teL
+> ekat edoCteeL tsetnoc" Example 2:
 
->Input: s = "Mr Ding"
-Output: "rM gniD"
+> Input: s = "Mr Ding" Output: "rM gniD"
 
-
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Java
-```{.java}
+
+``` java
 private static String reverseWords(String s) {
 
         StringBuilder sb = new StringBuilder();
@@ -699,6 +744,6 @@ private static String reverseWords(String s) {
 
         }
 ```
-_Runtime 9ms Beats 44.51% of users with Java_
-::: 
 
+*Runtime 9ms Beats 44.51% of users with Java*
+:::
