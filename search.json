@@ -53,7 +53,7 @@
     "href": "code/hashing /hashing.html",
     "title": "Hashing",
     "section": "",
-    "text": "A hash map is an unordered data structure that stores key-value pairs"
+    "text": "a hash map is an unordered data structure that stores key-value pairs. A hash map can add and remove elements in O(1), as well as update values associated with a key and check if a key exists, also in O(1)."
   },
   {
     "objectID": "code/hashing /hashing.html#checking-for-existence",
@@ -67,14 +67,14 @@
     "href": "code/hashing /hashing.html#leetcode-problem",
     "title": "Hashing",
     "section": "Leetcode Problem",
-    "text": "Leetcode Problem\n\nCheck if the Sentence Is Pangram\nA pangram is a sentence where every letter of the English alphabet appears at least once.\nGiven a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.\n\nJavaPython\n\n\n    private static boolean isPanagram(String s) {\n        Set&lt;Character&gt; string = new HashSet&lt;&gt;();\n\n        for(int i=0;i&lt;s.length();i++){ // iteate through the string\n            string.add(s.charAt(i)); //sets can't hold duplicate values\n            if(string.size() == 26){ // alphabet has 26 letters therefore, if string size = 26 it must be a panagram\n                return true;\n            }\n\n        }\n        return false;\n\n    }\n\n\ndef isPanagram(s:str)-&gt; bool:\n    s = set(s)\n    if(len(s) == 26):\n        return True\n\n    return False\nTo improve this code i could have not used the if statement and just returned len(s)==26"
+    "text": "Leetcode Problem\n\nCheck if the Sentence Is Pangram\nA pangram is a sentence where every letter of the English alphabet appears at least once.\nGiven a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.\n\nJavaPython\n\n\n    private static boolean isPanagram(String s) {\n        Set&lt;Character&gt; string = new HashSet&lt;&gt;();\n\n        for(int i=0;i&lt;s.length();i++){ // iteate through the string\n            string.add(s.charAt(i)); //sets can't hold duplicate values\n            if(string.size() == 26){ // alphabet has 26 letters therefore, if string size = 26 it must be a panagram\n                return true;\n            }\n\n        }\n        return false;\n\n    }\n\n\ndef isPanagram(s:str)-&gt; bool:\n    s = set(s)\n    if(len(s) == 26):\n        return True\n\n    return False\nTo improve this code i could have not used the if statement and just returned len(s)==26\n\n\n\n\n\nMissing Number\nGiven an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.\nExample 1:\nInput: nums = [3,0,1] Output: 2 Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.\n\nJava\n\n\nprivate static int missingNum(int[] nums) {\n  List&lt;Integer&gt; ans = new ArrayList&lt;&gt;(); //resizable array\n        for(int num: nums){ \n            ans.add(num);\n        }\n\n        for(int i=nums.length; i&gt;0;i--){\n            if(!ans.contains(i)){\n                return i;\n            }\n        }\n        return 0;\n    }"
   },
   {
     "objectID": "code/array-strings/array-string.html",
     "href": "code/array-strings/array-string.html",
     "title": "Arrays and Strings",
     "section": "",
-    "text": "Both represent ordered group of elements\n\n\n\nLanguage\nArray and String\n\n\n\n\nPython\nImmutable\n\n\nJava\nImmutable.\n\n\nC++\nMutable"
+    "text": "Both represent ordered group of elements\n\n\n\nLanguage\nArray and String\n\n\n\n\nPython\nImmutable\n\n\nJava\nImmutable.\n\n\nC++\nMutable\n\n\n\nDifferent ways to solve arrays and string problems:\n\nTwo Pointers\nSliding Window\nPrefix Sum\nString builder\nSubarrays/substrings, subsequences, and subsets"
   },
   {
     "objectID": "code/array-strings/array-string.html#two-pointers-examples",
@@ -98,8 +98,8 @@
     "text": "Psudocode\nfunction fn(nums, k):\n    left = 0\n    curr = 0\n    answer = 0\n    for (int right = 0; right &lt; nums.length; right++):\n        curr += nums[right]\n        while (curr &gt; k):\n            curr -= nums[left]\n            left++\n\n        answer = max(answer, right - left + 1)\n\n    return answer\n\nExample 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. This is the problem we have been talking about above. We will now formally solve it."
   },
   {
-    "objectID": "code/array-strings/array-string.html#java-7",
-    "href": "code/array-strings/array-string.html#java-7",
+    "objectID": "code/array-strings/array-string.html#java-8",
+    "href": "code/array-strings/array-string.html#java-8",
     "title": "Arrays and Strings",
     "section": "Java",
     "text": "Java\n    public static int subarray(int[] nums, int k) {\n        int left =0;\n        int sum = 0;\n        int answer = 0;\n\n        for(int right =0; right&lt;nums.length;right++){\n            sum += nums[right];\n            while(sum &gt; k){\n                sum -= nums[left];\n                left++;\n            }\n            answer = Math.max(answer, right - left + 1);\n\n        }\n\nExample 2: You are given a binary string s (a string containing only “0” and “1”). You may choose up to one “0” and flip it to a “1”. What is the length of the longest substring achievable that contains only “1”? For example, given s = “1101100111”, the answer is 5. If you perform the flip at index 2, the string becomes 1111100111.\n\n\nJavaPython\n\n\npublic static int binarySubarray(String s) {\n    int left =0;\n    int counter = 0;\n    int answer = 0;\n\n    for(int i =0; i&lt;s.length();i++){\n        if (s.charAt(i)== '0') {\n            counter++;\n\n        }\n\n        while(counter &gt; 1){\n            if (s.charAt(left) == '0') {\n                counter--;\n            }\n\n            left++;\n        }\n\n        answer = Math.max(answer, i - left + 1);\n    }\n\n        \n        return answer;\n\n    }\n\n\ndef binarySubarray(s):\n\n    left=counter=answer=0\n\n    for i in range(len(s)):\n        if s[i] ==\"0\":\n            counter +=1\n        while counter &gt; 1:\n            if(s[left] == \"0\"):\n                counter -= 1\n            left += 1\n\n        ans = max(answer, i - left + 1)\n\n    return(ans)"
