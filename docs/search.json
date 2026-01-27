@@ -98,8 +98,8 @@
     "text": "Psudocode\nfunction fn(nums, k):\n    left = 0\n    curr = 0\n    answer = 0\n    for (int right = 0; right &lt; nums.length; right++):\n        curr += nums[right]\n        while (curr &gt; k):\n            curr -= nums[left]\n            left++\n\n        answer = max(answer, right - left + 1)\n\n    return answer\n\nExample 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. This is the problem we have been talking about above. We will now formally solve it."
   },
   {
-    "objectID": "code/array-strings/array-string.html#java-7",
-    "href": "code/array-strings/array-string.html#java-7",
+    "objectID": "code/array-strings/array-string.html#java-8",
+    "href": "code/array-strings/array-string.html#java-8",
     "title": "Arrays and Strings",
     "section": "Java",
     "text": "Java\n    public static int subarray(int[] nums, int k) {\n        int left =0;\n        int sum = 0;\n        int answer = 0;\n\n        for(int right =0; right&lt;nums.length;right++){\n            sum += nums[right];\n            while(sum &gt; k){\n                sum -= nums[left];\n                left++;\n            }\n            answer = Math.max(answer, right - left + 1);\n\n        }\n\nExample 2: You are given a binary string s (a string containing only “0” and “1”). You may choose up to one “0” and flip it to a “1”. What is the length of the longest substring achievable that contains only “1”? For example, given s = “1101100111”, the answer is 5. If you perform the flip at index 2, the string becomes 1111100111.\n\n\nJavaPython\n\n\npublic static int binarySubarray(String s) {\n    int left =0;\n    int counter = 0;\n    int answer = 0;\n\n    for(int i =0; i&lt;s.length();i++){\n        if (s.charAt(i)== '0') {\n            counter++;\n\n        }\n\n        while(counter &gt; 1){\n            if (s.charAt(left) == '0') {\n                counter--;\n            }\n\n            left++;\n        }\n\n        answer = Math.max(answer, i - left + 1);\n    }\n\n        \n        return answer;\n\n    }\n\n\ndef binarySubarray(s):\n\n    left=counter=answer=0\n\n    for i in range(len(s)):\n        if s[i] ==\"0\":\n            counter +=1\n        while counter &gt; 1:\n            if(s[left] == \"0\"):\n                counter -= 1\n            left += 1\n\n        ans = max(answer, i - left + 1)\n\n    return(ans)"
@@ -151,7 +151,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Shiny Fitness Application\n\n\n\n\n\nShiny application serving as a generalized fitness guide. This tool assists users in calculating metrics like basic metabolic rate (BMR), total daily energy expenditure (TDEE), macronutrients, and even generating personalized meal plans via the ChatGPT API.\n\n\n\n\n\n\nJan 12, 2024\n\n\nValentina Colorado,\n\n\n\n\n\n\n  \n\n\n\n\nData Mining Text Mining Adventure\n\n\n\n\n\nUsing data mining text mining sentiment analysis to explore the emotional impact of Rob Zombie’s iconic album, Hellbilly Deluxe (1998).\n\n\n\n\n\n\nJan 10, 2024\n\n\nValentina Colorado, Alexandra Desaulniers\n\n\n\n\n\n\n  \n\n\n\n\nSpotify Re-Wrapped\n\n\n\n\n\nUsing Spotify listening data to create data analysis on my listening history. Also including an interactive tab where users can upload their own spotify data to get personalized song reccomendations\n\n\n\n\n\n\nMay 1, 2023\n\n\nValentina Colorado, Isabel Zimmerman\n\n\n\n\n\n\nNo matching items"
+    "text": "Shiny Fitness Application\n\n\n\n\n\nShiny application serving as a generalized fitness guide. This tool assists users in calculating metrics like basic metabolic rate (BMR), total daily energy expenditure (TDEE), macronutrients, and even generating personalized meal plans via the ChatGPT API.\n\n\n\n\n\n\nValentina Colorado,\n\n\n\n\n\n\n  \n\n\n\n\nSpotify Re-Wrapped\n\n\n\n\n\nUsing Spotify listening data to create data analysis on my listening history. Also including an interactive tab where users can upload their own spotify data to get personalized song reccomendations\n\n\n\n\n\n\nValentina Colorado, Isabel Zimmerman\n\n\n\n\n\n\n  \n\n\n\n\nData Mining Text Mining Adventure\n\n\n\n\n\nUsing data mining text mining sentiment analysis to explore the emotional impact of Rob Zombie’s iconic album, Hellbilly Deluxe (1998).\n\n\n\n\n\n\nValentina Colorado, Alexandra Desaulniers\n\n\n\n\n\n\n  \n\n\n\n\nCustomer Dashbaord\n\n\n\n\n\nStep by step walk through of a sales perfomance dashboard using Tableau\n\n\n\n\n\n\nValentina Colorado\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -179,20 +179,125 @@
     "href": "leetcode.html",
     "title": "Leetcode",
     "section": "",
-    "text": "Arrays and Strings\n\n\n\n\n\nGoing over basic arrays and strings content and leetcode problems\n\n\n\n\n\n\nJan 28, 2024\n\n\nValentina Colorado\n\n\n\n\n\n\n  \n\n\n\n\nHashing\n\n\n\n\n\nGoing over hashing topics and leetcode problems\n\n\n\n\n\n\nJan 3, 2024\n\n\nValentina Colorado\n\n\n\n\n\n\nNo matching items"
+    "text": "Linked-List\n\n\n\n\n\nGoing over linked list topics from leetcode DSA notes\n\n\n\n\n\n\nValentina Colorado\n\n\n\n\n\n\n  \n\n\n\n\nHashing\n\n\n\n\n\nGoing over hashing topics and leetcode problems\n\n\n\n\n\n\nValentina Colorado\n\n\n\n\n\n\n  \n\n\n\n\nArrays and Strings\n\n\n\n\n\nGoing over basic arrays and strings content and leetcode problems\n\n\n\n\n\n\nValentina Colorado\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "code/array-strings/array-string.html#python-1",
-    "href": "code/array-strings/array-string.html#python-1",
-    "title": "Arrays and Strings",
+    "objectID": "code/linked-list/linked-list.html",
+    "href": "code/linked-list/linked-list.html",
+    "title": "Linked-List",
+    "section": "",
+    "text": "Node: A basic data structure which contain data and one or more links to other nodes.\nLinked List Is similar to an array but each node will have a next pointer which points to the node representing the element int the sequence.\nEX: 0–&gt;1–&gt;2\nListNode (1) is the head because it is the start of the linked list. Keep a reference to the head because it is the only node from where you can reach all elements in the list\nAfter the code is run prt still refers to the original head node VARIABLES REMAIN AT NODES UNLESS THEY ARE MODIFIED DIRECTLY\niterating through a linked list"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#mechanics",
+    "href": "code/linked-list/linked-list.html#mechanics",
+    "title": "Linked-List",
+    "section": "Mechanics",
+    "text": "Mechanics\n\nAssignment(=) When you assign a pointer to an existing linked list node the pointer refers to the object in memory.\n\n\nJava\n\n\n\nListNode ptr = head;\nhead = head.next;\nhead = null;\nptr = head\nhead = head.next\nhead = None\n\n\n\nAfter the code is run prt still refers to the original head node VARIABLES REMAIN AT NODES UNLESS THEY ARE MODIFIED DIRECTLY\n\nChaining .next\n\niterating through a linked list\n\nJavaRecursive JavaPythonRecursive Python\n\n\n    int getSum(ListNode head){\n        int ans = 0;\n\n        while (head != null){\n            ans += head.val;\n            head = head.next;\n        }\n        return ans;\n    }\n\n\nint getSum(ListNode head){\n  if(head ==null){ return 0}\n  return head.val + getSum(head)\n}\n\n\n\n  def getSum(head):\n  ans =0 \n  while head: \n    ans += head.val\n    head = head.next\n  return ans\n\n\ndef getSum(head):\n  if not head: return 0\n  return head.val + get_sum(head.next)\n\n\n\n##Types of linked list\n\nSingly linked list\nmost common type\nEach node only has a pointer the the next node. You can only move forward in the list when iterating.\nreference node: next\n\nHow do we add an element to a linked list so that it becomes the element at position i\n\n\nJavaPython\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode (int val){ this.val =val}\n}\n\n// prevNode is the node at position i-1\nvoid addNode(ListNode prevNode, ListNode nodeToAdd){\n  nodeToAdd.next = prevNode.next;\n  prevNode.next = nodeToAdd;\n}\n\n\nclass ListNode:\n  def __init__(self,val):\n  self.val = val\n  self.next = None\n  \ndef add_node (prev_node, note_to_add)\n  note_to_add.next = prev_node.next\n  prev_node.next = node_to_add\n\n\n\n\nHow do we delete the element at position i?\n\n\nJavaPython\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode (int val){ this.val =val}\n}\n\n// prevNode is the node at position i-1\nvoid deleteNode(ListNode prevNode){\n  prevNode.next = prevNode.next.next\n}\n\n\n\nclass ListNode:\n  def __init__(self,val):\n  self.val = val\n  self.next = None\n  \ndef delete_node (prev_node,)\n  prev_node.next = prev_node.next.next\n\n\n\nBig (O)\n\nWith reference (i-1) O(1)\nWithout reference O(n)"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#python-2",
+    "href": "code/linked-list/linked-list.html#python-2",
+    "title": "Linked-List",
     "section": "Python",
-    "text": "Python\n      s.reverse()\n:::\nTime: O(n) Space:O(1)\n\nExample 2: Given a sorted array of unique integers and a target integer, return true if there exists a pair of numbers that sum to target, false otherwise. This problem is similar to Two Sum. (In Two Sum, the input is not sorted). For example, given nums = [1, 2, 4, 6, 8, 9, 14, 15] and target = 13, return true because 4 + 9 = 13.\n\n\nJavaPython\n\n\n    public static boolean targetSum(int[] nums,int target){\n\n        int left =0;\n        int right = nums.length-1;\n\n\n        while(left&lt;right){\n            int sum = nums[left]+nums[right];\n            if(sum == target){\n                return true; \n            }\n            else if(sum&gt;target){\n                right--;\n\n            }\n            else{\n                left++;\n            }\n    }\n    return false;\n        \n\n    }\n\n\ndef targetSum(nums:list[int], target:int ) -&gt; bool:\n\n    left =0\n    right = len(nums)-1\n\n\n    while left&lt;right:\n         sum = nums[left]+nums[right]\n         if(sum == target):\n            return True\n         elif(sum&gt;target):\n             right -=1\n         else:\n             left += 1\n    return False\n\n\n\nTime: O(n) Space:O(1)\n\nExample 3: Given two sorted integer arrays arr1 and arr2, return a new array that combines both of them and is also sorted.\n\n\nJava\n\n\npublic static List&lt;Integer&gt; combinedSorted(int[] arr1, int[]arr2){\n\n        \n        List&lt;Integer&gt;  arr3 = new ArrayList&lt;&gt;();\n        int i =0;\n        int j =0;\n\n        while(i &lt;arr1.length && j&lt;arr2.length){\n            if(arr1[i]&lt;arr2[j]){\n                arr3.add(arr1[i]);\n                i++;\n            }\n            else{\n                arr3.add(arr2[j]);\n                j++;\n            }\n            \n        }\n        // After the first while loop one of the arrays will have gone through completly\n        while (i &lt; arr1.length) {\n            arr3.add(arr1[i]);\n            i++;\n        }\n    \n        while (j &lt; arr2.length) {\n            arr3.add(arr2[j]);\n            j++;\n        }\n    \n        return arr3;\n    }\n}\n\n\n\nTime: O(n) Space:O(1)\n\nExample 4: 392. Is Subsequence. Given two strings s and t, return true if s is a subsequence of t, or false otherwise.\n\n\nJava\n\n\n\n public static boolean checkIfSubsequence(String s, String t){\n    int i =0;\n    int j =0;\n\n    while(i &lt; s.length() && j&lt;t.length()){\n        if(s.charAt(i)==t.charAt(j)){\n            i++;\n        }\n         \n        j++;\n        \n    }\n    return i == s.length();\n }\n\n}\n\n\n\nTime: O(n) Space:O(1)\nA subsequence of a string is a sequence of characters that can be obtained by deleting some (or none) of the characters from the original string, while maintaining the relative order of the remaining characters. For example, “ace” is a subsequence of “abcde” while “aec” is not."
+    "text": "Python\nclass ListNode:\n  def __init__(self,val):\n  self.val = val\n  self.next = None\n  \ndef add_node (prev_node, note_to_add)\n  note_to_add.next = prev_node.next\n  prev_node.next = node_to_add\n:::\n\nHow do we delete the element at position i?\n\n\nJavaPython\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode (int val){ this.val =val}\n}\n\n// prevNode is the node at position i-1\nvoid deleteNode(ListNode prevNode){\n  prevNode.next = prevNode.next.next\n}\n\n\n\nclass ListNode:\n  def __init__(self,val):\n  self.val = val\n  self.next = None\n  \ndef delete_node (prev_node,)\n  prev_node.next = prev_node.next.next\n\n\n\nBig (O)\n\nWith reference (i-1) O(1)\nWithout reference O(n)"
   },
   {
-    "objectID": "code/array-strings/array-string.html#java-8",
-    "href": "code/array-strings/array-string.html#java-8",
-    "title": "Arrays and Strings",
+    "objectID": "code/linked-list/linked-list.html#java-3",
+    "href": "code/linked-list/linked-list.html#java-3",
+    "title": "Linked-List",
     "section": "Java",
-    "text": "Java\n    public static int subarray(int[] nums, int k) {\n        int left =0;\n        int sum = 0;\n        int answer = 0;\n\n        for(int right =0; right&lt;nums.length;right++){\n            sum += nums[right];\n            while(sum &gt; k){\n                sum -= nums[left];\n                left++;\n            }\n            answer = Math.max(answer, right - left + 1);\n\n        }\n\nExample 2: You are given a binary string s (a string containing only “0” and “1”). You may choose up to one “0” and flip it to a “1”. What is the length of the longest substring achievable that contains only “1”? For example, given s = “1101100111”, the answer is 5. If you perform the flip at index 2, the string becomes 1111100111.\n\n\nJavaPython\n\n\npublic static int binarySubarray(String s) {\n    int left =0;\n    int counter = 0;\n    int answer = 0;\n\n    for(int i =0; i&lt;s.length();i++){\n        if (s.charAt(i)== '0') {\n            counter++;\n\n        }\n\n        while(counter &gt; 1){\n            if (s.charAt(left) == '0') {\n                counter--;\n            }\n\n            left++;\n        }\n\n        answer = Math.max(answer, i - left + 1);\n    }\n\n        \n        return answer;\n\n    }\n\n\ndef binarySubarray(s):\n\n    left=counter=answer=0\n\n    for i in range(len(s)):\n        if s[i] ==\"0\":\n            counter +=1\n        while counter &gt; 1:\n            if(s[left] == \"0\"):\n                counter -= 1\n            left += 1\n\n        ans = max(answer, i - left + 1)\n\n    return(ans)"
+    "text": "Java\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode (int val){ this.val =val}\n}\n\n// prevNode is the node at position i-1\nvoid addNode(ListNode prevNode, ListNode nodeToAdd){\n  nodeToAdd.next = prevNode.next;\n  prevNode.next = nodeToAdd;\n}"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#types-of-linked-list",
+    "href": "code/linked-list/linked-list.html#types-of-linked-list",
+    "title": "Linked-List",
+    "section": "Types of linked list",
+    "text": "Types of linked list\n\nSingly linked list\nmost common type\nEach node only has a pointer the the next node. You can only move forward in the list when iterating.\nreference node: next\n\nHow do we add an element to a linked list so that it becomes the element at position i\n\n\nJavaPython\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode (int val){ this.val =val}\n}\n\n// prevNode is the node at position i-1\nvoid addNode(ListNode prevNode, ListNode nodeToAdd){\n  nodeToAdd.next = prevNode.next;\n  prevNode.next = nodeToAdd;\n}\n\n\nclass ListNode:\n  def __init__(self,val):\n  self.val = val\n  self.next = None\n  \ndef add_node (prev_node, note_to_add)\n  note_to_add.next = prev_node.next\n  prev_node.next = node_to_add\n\n\n\n\nHow do we delete the element at position i?\n\n\nJavaPython\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode (int val){ this.val =val}\n}\n\n// prevNode is the node at position i-1\nvoid deleteNode(ListNode prevNode){\n  prevNode.next = prevNode.next.next\n}\n\n\nclass ListNode:\n  def __init__(self,val):\n  self.val = val\n  self.next = None\n  \ndef delete_node (prev_node,)\n  prev_node.next = prev_node.next.next\n\n\n\nBig (O)\n\nWith reference (i-1) O(1)\nWithout reference O(n)\n\n\n\nDoubly linked list\nSimilar to singly linked list but each node also contains a pointer to the previous node (prev) allows iteration in both directions\n\nJavaPython\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode prev;\n  ListNode(int val){\n    this.val = val\n}\n\nvoid addNode(ListNode node, ListNode nodeToAdd){\n  ListNode prevNode = node.prev;\n  nodeToAdd.next = node;\n  nodeToAdd.prev = prevNode;\n  prevNode.next = nodeToAdd;\n  node.prev = nodeToAddl\n}\n\nvoid deleteNode(ListNode node){\n  ListNode prevNode = node.prev;\n  ListNode nextNode = node.next;\n  prevNode.next = nextNode;\n  nextNode.prev = prevnode;\n}\n}\n\n\nclass ListNode:\n  def __init__(self,val):\n  self.val = val\n  self.next = None\n  \ndef delete_node (prev_node,)\n  prev_node.next = prev_node.next.next\n\n\n\n\n\nLinked list with sentinel nodes\nSentinel nodes sit at the start and end of linked lists and are used to make operations and the code needed to execute those operations cleaner.\nStart of linked list HEAD End of a linked list TAIL\n\nJava End of ListJava Start of ListPython\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode prev;\n  ListNode(int val){\n    this.val = val\n}\n\nvoid addToEnd(ListNode nodeToAdd){\n  nodeToAdd.next = tail;\n  nodeToAdd.prev = tail.prev;\n  tail.prev.next = nodeToAdd;\n  tail.prev = nodeToAdd; \n}\n\nvoid removeFromEnd(){\n  if(head.next == tail){return;}\n  ListNode nodeToRemove = tail.prev;\n  nodeToRemove.prev.next = tail;\n  tail.prev = nodeToRemove.prev\n  \n}\n\n\nclass ListNode{\n  int val;\n  ListNode next;\n  ListNode prev;\n  ListNode(int val){\n    this.val = val\n}\n\nvoid addToStart(ListNode nodeToAdd){\n  nodeToAdd.next = head;\n  nodeToAdd.prev = head.next;\n  head.next.prev = nodeToAdd;\n  head.next = nodeToAdd; \n}\n\nvoid removeFromStart(){\n  if(head.next == tail){return;}\n  ListNode nodeToRemove = head.next;\n  nodeToRemove.next.prev = head;\n  head.next = nodeToRemove.next\n  \n}\n\n\nclass ListNode:\n    def __init__(self, val):\n        self.val = val\n        self.next = None\n        self.prev = None\n\ndef add_to_end(node_to_add):\n    node_to_add.next = tail\n    node_to_add.prev = tail.prev\n    tail.prev.next = node_to_add\n    tail.prev = node_to_add\n\ndef remove_from_end():\n    if head.next == tail:\n        return\n\n    node_to_remove = tail.prev\n    node_to_remove.prev.next = tail\n    tail.prev = node_to_remove.prev\n\ndef add_to_start(node_to_add):\n    node_to_add.prev = head\n    node_to_add.next = head.next\n    head.next.prev = node_to_add\n    head.next = node_to_add\n\ndef remove_from_start():\n    if head.next == tail:\n        return\n    \n    node_to_remove = head.next\n    node_to_remove.next.prev = head\n    head.next = node_to_remove.next\n\nhead = ListNode(None)\ntail = ListNode(None)\nhead.next = tail\ntail.prev = head"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#dummy-pointers",
+    "href": "code/linked-list/linked-list.html#dummy-pointers",
+    "title": "Linked-List",
+    "section": "Dummy pointers",
+    "text": "Dummy pointers\n\nJava\n\n\nint getSum(ListNode head){\n  int ans =0;\n  ListNode dummy = head;\n  while(dummy != null){\n  ans += dummy.val;\n  dummy = dummy.next\n}\n  //same as before but we still have a pointer at the head\n  return ans; \n}\n#Python\ndef get_sum(head):\n  ans =0\n  dummy = head\n  while dummy:\n    ans += dummy.val\n    dummmy = dummy.next\n    \n    return ans"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#python-7",
+    "href": "code/linked-list/linked-list.html#python-7",
+    "title": "Linked-List",
+    "section": "Python",
+    "text": "Python\ndef hasCycle(self,head)-&gt;bool:\n  slow = head\n  fast = head\n  \n  while fast and fast.next:\n  slow = slow.next\n  fast = fast.next.next\n  if slow == fast: -- cycle exist \n    return true\n  return false -- doesn't exist"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#java-with-hashing",
+    "href": "code/linked-list/linked-list.html#java-with-hashing",
+    "title": "Linked-List",
+    "section": "Java with hashing",
+    "text": "Java with hashing\npublic boolean hasCycle(ListNode head){\n  &lt;Set ListNode&gt; seen = new HashSet&lt;&gt;();\n  while(head != null){\n  if (seen.contains(head)){return true}\n  seen.add(head)\n  head=head.next\n}\n\n}\n#Python with hashing\ndef hasCycle(self,head: Optional[ListNode])-&gt;bool:\n  seen = set()\n  while head:\n    if head in seen:\n      return true\n    seen.add(head)\n    head = head.next\n  return false\n:::\nEX 3: Given the head of a linked list and an integer k return the kth node from the end.\nGiven the linked list that represents 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 and k=2 return the node with value 4 as its 2nd from the end\n\n\n\n\n\n\n\n\n\nVisual representation"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#problem-1-given-the-head-of-a-singly-linked-list-return-the-middle-node-of-the-linked-list.-if-there-are-two-middle-nodes-return-the-second-middle-node.",
+    "href": "code/linked-list/linked-list.html#problem-1-given-the-head-of-a-singly-linked-list-return-the-middle-node-of-the-linked-list.-if-there-are-two-middle-nodes-return-the-second-middle-node.",
+    "title": "Linked-List",
+    "section": "Problem 1: Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.",
+    "text": "Problem 1: Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.\n\nInput: head = [1,2,3,4,5] Output: [3,4,5] Explanation: The middle node of the list is node 3.\n\n\nInput: head = [1,2,3,4,5,6] Output: [4,5,6] Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one."
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#reversing-a-linked-list",
+    "href": "code/linked-list/linked-list.html#reversing-a-linked-list",
+    "title": "Linked-List",
+    "section": "Reversing a Linked List",
+    "text": "Reversing a Linked List"
+  },
+  {
+    "objectID": "code/linked-list/linked-list.html#example-problems",
+    "href": "code/linked-list/linked-list.html#example-problems",
+    "title": "Linked-List",
+    "section": "Example problems",
+    "text": "Example problems\nProblem 1: Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.\n\nInput: head = [1,2,3,4,5] Output: [3,4,5] Explanation: The middle node of the list is node 3.\n\n\nInput: head = [1,2,3,4,5,6] Output: [4,5,6] Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.\n\n\nJava\n\n\n/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode middleNode(ListNode head) {\n        \n        ListNode slow = head;\n        ListNode fast = head;\n        \n        while(fast != null && fast.next != null){\n            slow = slow.next;\n            fast = fast.next.next;\n                }\n            return slow;\n            }\n            }\n        \n\n\n\nProblem 2: Remove Duplicates from sorted list\n:::panel-tabset ## Java\n/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\n \n class Solution {\n    public ListNode deleteDuplicates(ListNode head) {\n    \n      ListNode current = head;\n      \n      while(current != null && current.next!=null){\n      if(current.next.val == current.val){\n        current.next = current.next.next;\n      }\n      else{\n      current = current.next;\n  }\n      return head;\n        \n    }\n}\n \n:::"
+  },
+  {
+    "objectID": "posts/tableau-dashboard/customer-dashboard.html",
+    "href": "posts/tableau-dashboard/customer-dashboard.html",
+    "title": "Customer Dashbaord",
+    "section": "",
+    "text": "Build two dashboards using tableau to help stakeholders to analyze sales performace and customers."
+  },
+  {
+    "objectID": "posts/tableau-dashboard/customer-dashboard.html#analyse-project-requirements",
+    "href": "posts/tableau-dashboard/customer-dashboard.html#analyse-project-requirements",
+    "title": "Customer Dashbaord",
+    "section": "Analyse Project Requirements",
+    "text": "Analyse Project Requirements\n\nCollect Requirements\nChoose Right Charts\nDraw Mock-ups\nChoose Colors"
+  },
+  {
+    "objectID": "posts/tableau-dashboard/customer-dashboard.html#preparing-data-source",
+    "href": "posts/tableau-dashboard/customer-dashboard.html#preparing-data-source",
+    "title": "Customer Dashbaord",
+    "section": "Preparing Data Source",
+    "text": "Preparing Data Source\n\nConnect Data\nUnderstand Data\nRename Fields & Tables\nCheck Data Types\nUnderstand Data"
+  },
+  {
+    "objectID": "posts/tableau-dashboard/customer-dashboard.html#build-charts",
+    "href": "posts/tableau-dashboard/customer-dashboard.html#build-charts",
+    "title": "Customer Dashbaord",
+    "section": "Build Charts",
+    "text": "Build Charts\n\nCreate Calculated Fields & Test\nBuild Charts\nFormat Charts"
+  },
+  {
+    "objectID": "posts/tableau-dashboard/customer-dashboard.html#build-dashboard",
+    "href": "posts/tableau-dashboard/customer-dashboard.html#build-dashboard",
+    "title": "Customer Dashbaord",
+    "section": "Build Dashboard",
+    "text": "Build Dashboard\n\nDraw Mock-up for Container\nCreate Container Structure\nPut charts Together\nFormat"
+  },
+  {
+    "objectID": "posts/tableau-dashboard/customer-dashboard.html#sales-dashboard",
+    "href": "posts/tableau-dashboard/customer-dashboard.html#sales-dashboard",
+    "title": "Customer Dashbaord",
+    "section": "Sales Dashboard",
+    "text": "Sales Dashboard\n\n\nCustomer Dashboard Requirements\n\nKPI Overview: Display a summary of total number of customers, total sales per customer and total number of orders for the current and previous year\n\n\ncreate a new current year customer calculated field.\ncalculate the current year sales per customer: SUM(CY Sales) / COUNTD(CUSTOMER ID)"
   }
 ]

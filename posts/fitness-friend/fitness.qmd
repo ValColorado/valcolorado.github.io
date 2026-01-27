@@ -1,7 +1,6 @@
 ---
 title: "Shiny Fitness Application "
 author: "Valentina Colorado,"
-date: "2024-01-12"
 categories: [class, code, R, shiny,]
 image: https://media2.giphy.com/media/soUwubznXgM6jHcoxe/giphy.gif
 description: "Shiny application serving as a generalized fitness guide. This tool assists users in calculating metrics like basic metabolic rate (BMR), total daily energy expenditure (TDEE),  macronutrients, and even generating personalized meal plans via the ChatGPT API."

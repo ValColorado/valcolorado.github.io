@@ -1,7 +1,6 @@
 ---
 title: "Data Mining Text Mining Adventure"
 author: "Valentina Colorado, Alexandra Desaulniers"
-date: "2024-01-10"
 categories: [class, code, analysis, DMTM, R]
 image: https://upload.wikimedia.org/wikipedia/en/8/8b/Hellbilly_Deluxe.jpg
 description: "Using data mining text mining sentiment analysis to explore the emotional impact of Rob Zombie's iconic album, Hellbilly Deluxe (1998)." 

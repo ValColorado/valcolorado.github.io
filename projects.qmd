@@ -2,7 +2,7 @@
 title: "Projects"
 listing:
   contents: posts
-  sort: "date desc"
+  sort: "desc"
   type: default
   feed:
     categories: [python, r]

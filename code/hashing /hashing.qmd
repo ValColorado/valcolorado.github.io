@@ -1,7 +1,6 @@
 ---
 title: "Hashing"
 author: "Valentina Colorado"
-date: "2024-01-03"
 categories: [Java, Python,Data Structures, Algorithms, Hashing]
 image: https://miro.medium.com/v2/resize:fit:1400/1*8hAoOurJFBfA-w1wKUAqIA.gif
 description: "Going over hashing topics and leetcode problems"

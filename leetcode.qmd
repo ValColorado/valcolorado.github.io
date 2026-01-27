@@ -2,7 +2,7 @@
 title: "Leetcode"
 listing:
   contents: code
-  sort: "date desc"
+  sort: "desc"
   type: default
   feed:
     categories: [python, r, java]
