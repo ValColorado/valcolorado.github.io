@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Valentina Colorado">
+<meta name="description" content="Step by step walk through of a sales perfomance dashboard using Tableau">
 
-<title>valentina colorado - Leetcode</title>
+<title>valentina colorado - Customer Dashbaord</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,40 +62,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="alternate" type="application/rss+xml" title="valentina colorado" href="leetcode.xml"></head>
+</head>
 
 <body class="nav-fixed fullcontent">
 
@@ -104,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">valentina colorado</span>
     </a>
   </div>
@@ -115,15 +84,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html" rel="" target="">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
  <span class="menu-text">projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./leetcode.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../leetcode.html" rel="" target="">
  <span class="menu-text">leetcode</span></a>
   </li>  
   <li class="nav-item compact">
@@ -145,116 +114,146 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Customer Dashbaord</h1>
+                  <div>
+        <div class="description">
+          Step by step walk through of a sales perfomance dashboard using Tableau
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">project</div>
+                <div class="quarto-category">tableau</div>
+                <div class="quarto-category">dashboard</div>
+                <div class="quarto-category">shiny</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Valentina Colorado </p>
+            </div>
+    </div>
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Leetcode</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p><em>Build two dashboards using tableau to help stakeholders to analyze sales performace and customers.</em></p>
+<section id="steps-to-create-a-dashboard" class="level1">
+<h1>Steps to create a dashboard</h1>
+<section id="analyse-project-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-project-requirements">Analyse Project Requirements</h2>
+<ol type="1">
+<li>Collect Requirements</li>
+<li>Choose Right Charts</li>
+<li>Draw Mock-ups</li>
+<li>Choose Colors</li>
+</ol>
+</section>
+<section id="preparing-data-source" class="level2">
+<h2 class="anchored" data-anchor-id="preparing-data-source">Preparing Data Source</h2>
+<ol type="1">
+<li>Connect Data</li>
+<li>Understand Data</li>
+<li>Rename Fields &amp; Tables</li>
+<li>Check Data Types</li>
+<li>Understand Data</li>
+</ol>
+</section>
+<section id="build-charts" class="level2">
+<h2 class="anchored" data-anchor-id="build-charts">Build Charts</h2>
+<ol type="1">
+<li>Create Calculated Fields &amp; Test</li>
+<li>Build Charts</li>
+<li>Format Charts</li>
+</ol>
+</section>
+<section id="build-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="build-dashboard">Build Dashboard</h2>
+<ol type="1">
+<li>Draw Mock-up for Container</li>
+<li>Create Container Structure</li>
+<li>Put charts Together</li>
+<li>Format</li>
+</ol>
+</section>
+</section>
+<section id="dashboard-1-sales-dashbaord" class="level1">
+<h1>Dashboard 1: Sales Dashbaord</h1>
+<p><em>Present an overview of the sales metrics and trends in order to analyze year over year sales performance and understand sales trends</em></p>
+<section id="sales-dashboard-main-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="sales-dashboard-main-requirements">Sales Dashboard Main Requirements</h3>
+<ol type="1">
+<li>KPI Overview:
+<ul>
+<li>Have a summary of total sales profits and quantity for the current and previous years</li>
+</ul></li>
+<li>Sales Trends:
+<ul>
+<li>Present the data for each KPI on a monthly bases for both the current and previous years</li>
+<li>Identify months with highest and lowest sales and make them easy to recognize</li>
+</ul></li>
+<li>Project Subcategory Comparison:
+<ul>
+<li>Compare sales performance by different product subcategories for the current and previous years. Include comparison of sales with profit</li>
+</ul></li>
+<li>Weekly trends for sales and profit
+<ul>
+<li>Weekly sales and profit data for the current year</li>
+<li>Average weekly values</li>
+<li>Highlight weeks that are above and below the average to draw attention to sales &amp; profit performance</li>
+</ul></li>
+<li>Dynamic Dashboard
+<ul>
+<li>Allow user the option to select any desired year</li>
+<li>Make the charts and graphs interactive</li>
+<li>Include data filters</li>
+</ul></li>
+</ol>
+</section>
+<section id="creating-a-data-model" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-data-model">Creating a Data Model</h3>
+<p>I started with Orders.csv since it is a <strong>fact</strong> <em>Stores quantitative data</em> table.</p>
+<p><img src="images/data-model.png" class="img-fluid"></p>
+</section>
+<section id="sales-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="sales-dashboard">Sales Dashboard</h2>
+<p><img src="images/Sales-Dashboard.png" class="img-fluid"></p>
+<section id="customer-dashboard-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="customer-dashboard-requirements">Customer Dashboard Requirements</h3>
+<ol type="1">
+<li>KPI Overview: Display a summary of total number of customers, total sales per customer and total number of orders for the current and previous year</li>
+</ol>
+<ul>
+<li>create a new current year customer calculated field.</li>
+<li>calculate the current year sales per customer: <code>SUM(CY Sales) / COUNTD(CUSTOMER ID)</code></li>
+</ul>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Java,Python,Data Structures,Algorithms,Linked List" data-listing-file-modified-sort="1769472987886" data-listing-reading-time-sort="15">
-<div class="thumbnail">
-<p><a href="./code/linked-list/linked-list.html"> <img src="https://scaler-topics-articles-md.s3.us-west-2.amazonaws.com/insertion-operation-of-linked-list.gif" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./code/linked-list/linked-list.html">
-<h3 class="no-anchor listing-title">
-Linked-List
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-<p>Going over linked list topics from leetcode DSA notes</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./code/linked-list/linked-list.html">
-<div class="listing-author">
-Valentina Colorado
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Java,Python,Data Structures,Algorithms,Hashing" data-listing-file-modified-sort="1769472987886" data-listing-reading-time-sort="21">
-<div class="thumbnail">
-<p><a href="./code/hashing /hashing.html"> <img src="https://miro.medium.com/v2/resize:fit:1400/1*8hAoOurJFBfA-w1wKUAqIA.gif" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./code/hashing /hashing.html">
-<h3 class="no-anchor listing-title">
-Hashing
-</h3>
-<div class="listing-subtitle">
+</section>
+</section>
+</section>
 
-</div>
-<div class="listing-description">
-<p>Going over hashing topics and leetcode problems</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./code/hashing /hashing.html">
-<div class="listing-author">
-Valentina Colorado
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Java,Python,Data Structures,Algorithms,Arrays,Strings" data-listing-file-modified-sort="1769472983562" data-listing-reading-time-sort="23">
-<div class="thumbnail">
-<p><a href="./code/array-strings/array-string.html"> <img src="https://miro.medium.com/v2/resize:fit:1200/1*YWjJuLuXJULb-2IyYhqnXQ.gif" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./code/array-strings/array-string.html">
-<h3 class="no-anchor listing-title">
-Arrays and Strings
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Going over basic arrays and strings content and leetcode problems</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./code/array-strings/array-string.html">
-<div class="listing-author">
-Valentina Colorado
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
